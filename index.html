@@ -12,16 +12,18 @@
   .header h1 { font-size: 18px; font-weight: 600; line-height: 1.4; }
   .header p { font-size: 12px; color: #888; margin-top: 4px; }
   .lang-btns { display: flex; gap: 8px; }
-  .lang-btns button { font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #ccc; background: transparent; color: #666; cursor: pointer; }
-  .lang-btns button.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
+  .lang-btns button, .app-tabs button { font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #ccc; background: transparent; color: #666; cursor: pointer; font-family: inherit; }
+  .lang-btns button.active, .app-tabs button.active { background: #1a1a1a; color: #fff; border-color: #1a1a1a; }
   .meta { font-size: 13px; color: #888; margin-bottom: 1.75rem; line-height: 1.7; }
-  .intro { font-size: 14px; color: #555; margin-bottom: 1.75rem; line-height: 1.7; }
-  .badges { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
-  .badge { font-size: 12px; padding: 4px 12px; border-radius: 20px; background: #e8f0fe; color: #1a56db; border: 1px solid #c3d9fc; }
+  .intro { font-size: 14px; color: #555; margin-bottom: 1.5rem; line-height: 1.7; }
+  .tab-label { font-size: 11px; color: #999; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 10px; }
+  .app-tabs { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 2rem; }
   .section { border-left: 2px solid #e5e5e5; padding-left: 1rem; margin-bottom: 2rem; }
   .section h2 { font-size: 15px; font-weight: 600; margin-bottom: 1rem; }
   .section p { font-size: 14px; color: #555; line-height: 1.75; margin-bottom: 1rem; }
   .section p:last-child { margin-bottom: 0; }
+  .app-block { margin-bottom: 1rem; }
+  .app-block:last-child { margin-bottom: 0; }
   .sub-label { font-size: 13px; font-weight: 600; color: #888; margin-bottom: 6px; }
   .warning-box { background: #fffbeb; border: 1px solid #fcd34d; border-radius: 8px; padding: 10px 14px; margin-bottom: 12px; font-size: 13px; color: #92400e; line-height: 1.6; }
   table { width: 100%; font-size: 13px; border-collapse: collapse; margin-bottom: 10px; }
@@ -35,16 +37,16 @@
     body { background: #111; color: #e5e5e5; }
     .header { border-color: #333; }
     .header h1 { color: #e5e5e5; }
-    .lang-btns button { border-color: #444; color: #aaa; background: transparent; }
-    .lang-btns button.active { background: #e5e5e5; color: #111; border-color: #e5e5e5; }
+    .lang-btns button, .app-tabs button { border-color: #444; color: #aaa; background: transparent; }
+    .lang-btns button.active, .app-tabs button.active { background: #e5e5e5; color: #111; border-color: #e5e5e5; }
     .section { border-color: #333; }
     .section p, td { color: #aaa; }
     td:first-child { color: #ccc; }
     td { border-color: #2a2a2a; }
     .warning-box { background: #2a1f00; border-color: #7a5500; color: #f0b429; }
-    .badge { background: #1a2a4a; color: #7eb3f5; border-color: #2a4a8a; }
     .note { color: #666; }
     .sub-label { color: #666; }
+    .tab-label { color: #666; }
     .email { color: #7eb3f5; }
   }
 </style>
@@ -67,63 +69,80 @@
   <div id="lang-ko" style="display:none;">
     <p class="meta">시행일: 2026년 4월 16일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
     <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
-    <div class="badges">
-      <span class="badge">Pinclip</span>
-      <span class="badge">어제보다</span>
-      <span class="badge">RunNote</span>
-      <span class="badge">Sidefeed</span>
-      <span class="badge">Talk Memo</span>
+    <p class="tab-label">앱별로 보기</p>
+    <div class="app-tabs">
+      <button class="active" data-filter="all" onclick="filterApp('all')">전체</button>
+      <button data-filter="pinclip" onclick="filterApp('pinclip')">Pinclip</button>
+      <button data-filter="thanyesterday" onclick="filterApp('thanyesterday')">어제보다</button>
+      <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
+      <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
+      <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
     </div>
 
-    <div class="section">
-      <h2>1. 수집하는 정보</h2>
+    <div class="section" data-app="all">
+      <h2>수집하는 정보</h2>
       <p class="sub-label">공통</p>
       <p>당사는 개인 식별 정보를 수집하지 않습니다. 광고 및 분석 SDK를 사용하지 않습니다.</p>
-      <p class="sub-label">Pinclip</p>
-      <p>북마크한 영상 URL, 폴더 구조 등 앱 내 생성 데이터를 기기 내에만 저장합니다. iCloud를 사용하는 경우 Apple의 iCloud에 동기화될 수 있으며, 이는 Apple의 개인정보 보호방침을 따릅니다.</p>
-      <p class="sub-label">어제보다</p>
-      <p>현재 날씨 정보 제공을 위해 기기의 위치 정보(정밀 또는 대략적)를 사용합니다. 위치 정보는 Apple WeatherKit에 전달되며 기기 외부에 저장되지 않습니다.</p>
-      <p class="sub-label">RunNote</p>
-      <div class="warning-box">AI 코칭 기능 사용 시, 러닝 데이터(거리, 페이스, 심박수 등)가 Anthropic(Claude API)의 서버로 전송됩니다. 이 기능을 사용하기 전에 별도의 동의를 요청합니다.</div>
-      <p>러닝 기록(거리, 시간, 페이스, 경로 등) 및 건강 데이터(HealthKit — 심박수, 칼로리 등)를 수집합니다. AI 코칭 기능 제공 목적으로만 사용되며, 광고·마케팅·데이터 판매에 사용되지 않습니다. AI 코칭 기능을 사용하지 않는 경우 데이터는 기기 내에만 저장됩니다.</p>
-      <p class="sub-label">Sidefeed</p>
-      <div class="warning-box">Sidefeed는 Google OAuth를 통해 YouTube 좋아요 영상 및 구독 채널 정보에 접근합니다. 로그인 시 동의를 요청합니다.</div>
-      <p>Google OAuth 인증 토큰은 기기의 Keychain에 안전하게 저장됩니다. 좋아요 영상 및 구독 채널 정보는 관심 카테고리 분석에만 사용되며, 당사 서버에 전송되거나 저장되지 않습니다. 시청한 영상 기록 및 카테고리 설정은 기기 내에만 저장됩니다.</p>
-      <p class="sub-label">Talk Memo</p>
-      <p>Apple Watch 마이크를 통해 녹음된 오디오, 온디바이스 음성 인식으로 생성된 텍스트 메모, 녹음 시각 타임스탬프를 수집합니다. 모든 데이터는 기기 내에서만 처리되며, 외부 서버로 전송되지 않습니다. Apple의 온디바이스 Speech Recognition을 사용합니다.</p>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Pinclip</p>
+        <p>사용자가 저장한 영상 URL, 제목, 썸네일, 메모, 태그, 폴더 정보를 기기 내에 저장합니다. Pinclip Pro 구독자의 경우 해당 데이터가 사용자의 Apple iCloud 계정 내 private CloudKit 데이터베이스에 동기화되며, 이는 Apple의 개인정보 보호방침을 따릅니다. URL 공유 시 가져오는 메타데이터(제목, 썸네일 URL)는 원본 플랫폼(YouTube, TikTok 등)의 공개 API로 직접 요청되며 당사의 서버를 경유하지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">어제보다</p>
+        <p>현재 날씨 정보 제공을 위해 기기의 위치 정보(정밀 또는 대략적)를 사용합니다. 위치 정보는 Apple WeatherKit에 전달되며 기기 외부에 저장되지 않습니다.</p>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">RunNote</p>
+        <div class="warning-box">AI 코칭 기능 사용 시, 러닝 데이터(거리, 페이스, 심박수 등)가 Anthropic(Claude API)의 서버로 전송됩니다. 이 기능을 사용하기 전에 별도의 동의를 요청합니다.</div>
+        <p>러닝 기록(거리, 시간, 페이스, 경로 등) 및 건강 데이터(HealthKit — 심박수, 칼로리 등)를 수집합니다. AI 코칭 기능 제공 목적으로만 사용되며, 광고·마케팅·데이터 판매에 사용되지 않습니다. AI 코칭 기능을 사용하지 않는 경우 데이터는 기기 내에만 저장됩니다.</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Sidefeed</p>
+        <div class="warning-box">Sidefeed는 Google OAuth를 통해 YouTube 좋아요 영상 및 구독 채널 정보에 접근합니다. 로그인 시 동의를 요청합니다.</div>
+        <p>Google OAuth 인증 토큰은 기기의 Keychain에 안전하게 저장됩니다. 좋아요 영상 및 구독 채널 정보는 관심 카테고리 분석에만 사용되며, 당사 서버에 전송되거나 저장되지 않습니다. 시청한 영상 기록 및 카테고리 설정은 기기 내에만 저장됩니다.</p>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Talk Memo</p>
+        <p>Apple Watch 마이크를 통해 녹음된 오디오, 온디바이스 음성 인식으로 생성된 텍스트 메모, 녹음 시각 타임스탬프를 수집합니다. 모든 데이터는 기기 내에서만 처리되며, 외부 서버로 전송되지 않습니다. Apple의 온디바이스 Speech Recognition을 사용합니다.</p>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>2. 정보 이용 목적</h2>
+    <div class="section" data-app="all">
+      <h2>정보 이용 목적</h2>
       <p>수집된 정보는 오직 앱 기능 제공 목적으로만 사용됩니다. 제3자에게 판매하거나 공유하지 않습니다.</p>
     </div>
 
-    <div class="section">
-      <h2>3. 제3자 서비스</h2>
+    <div class="section" data-app="all">
+      <h2>제3자 서비스</h2>
       <table>
-        <tr><td>Apple WeatherKit</td><td>어제보다 — 날씨 데이터</td></tr>
-        <tr><td>Apple HealthKit / iCloud</td><td>Pinclip, RunNote — 건강·동기화</td></tr>
-        <tr><td>Anthropic (Claude API)</td><td>RunNote — AI 코칭 기능 (동의 후)</td></tr>
-        <tr><td>Google OAuth 2.0</td><td>Sidefeed — YouTube 계정 인증</td></tr>
-        <tr><td>YouTube Data API v3</td><td>Sidefeed — 영상 발견·트렌딩</td></tr>
-        <tr><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
+        <tr data-app="thanyesterday"><td>Apple WeatherKit</td><td>어제보다 — 날씨 데이터</td></tr>
+        <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro 구독자 데이터 동기화</td></tr>
+        <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — 건강 데이터</td></tr>
+        <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI 코칭 기능 (동의 후)</td></tr>
+        <tr data-app="sidefeed"><td>Google OAuth 2.0</td><td>Sidefeed — YouTube 계정 인증</td></tr>
+        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — 영상 발견·트렌딩</td></tr>
+        <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
       </table>
-      <p class="note">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 7일 후 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
-      <p class="note">YouTube API 사용은 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다. Google OAuth 토큰은 기기 Keychain에만 저장되며 당사 서버로 전송되지 않습니다.</p>
+      <p class="note" data-app="runnote">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 7일 후 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
+      <p class="note" data-app="sidefeed">YouTube API 사용은 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다. Google OAuth 토큰은 기기 Keychain에만 저장되며 당사 서버로 전송되지 않습니다.</p>
     </div>
 
-    <div class="section">
-      <h2>4. 데이터 보관 및 삭제</h2>
-      <p>모든 데이터는 앱을 삭제하면 함께 삭제됩니다. AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다. Sidefeed의 Google OAuth 토큰은 앱 삭제 시 Keychain에서 제거됩니다. Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에만 보관되며, 앱 삭제 시 함께 제거됩니다. 당사는 별도의 서버에 이용자 데이터를 보관하지 않습니다.</p>
+    <div class="section" data-app="all">
+      <h2>데이터 보관 및 삭제</h2>
+      <p>기본적으로 모든 데이터는 앱을 삭제하면 함께 삭제됩니다. 당사는 별도의 서버에 이용자 데이터를 보관하지 않습니다.</p>
+      <p data-app="pinclip">Pinclip Pro의 iCloud 동기화 데이터는 사용자의 iCloud 계정에 저장되며, 앱을 삭제해도 iCloud에는 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; "Pinclip" 항목에서 직접 삭제할 수 있습니다.</p>
+      <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다.</p>
+      <p data-app="sidefeed">Sidefeed의 Google OAuth 토큰은 로그아웃 또는 앱 삭제 시 기기 Keychain에서 즉시 제거됩니다.</p>
+      <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에만 보관되며, 앱 삭제 시 함께 제거됩니다.</p>
     </div>
 
-    <div class="section">
-      <h2>5. 아동 개인정보 보호</h2>
+    <div class="section" data-app="all">
+      <h2>아동 개인정보 보호</h2>
       <p>당사 앱은 만 14세 미만 아동을 대상으로 하지 않으며, 고의로 아동의 개인정보를 수집하지 않습니다.</p>
     </div>
 
-    <div class="section">
-      <h2>6. EU 이용자 권리 (GDPR)</h2>
+    <div class="section" data-app="all">
+      <h2>EU 이용자 권리 (GDPR)</h2>
       <p>EU/EEA 거주자는 아래 권리를 가집니다.</p>
       <table>
         <tr><td>열람권</td><td>당사가 보유한 본인 데이터 확인 요청</td></tr>
@@ -131,21 +150,23 @@
         <tr><td>전송 제한권</td><td>특정 데이터 처리 중단 요청</td></tr>
         <tr><td>이의 제기권</td><td>데이터 처리에 대한 이의 제기</td></tr>
       </table>
-      <p class="note">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 서비스 제공을 위한 적법한 이익(Legitimate Interest)에 근거합니다. Sidefeed의 Google OAuth는 이용자의 명시적 동의(Consent)에 근거합니다. 권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
+      <p class="note" data-app="runnote">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 서비스 제공을 위한 적법한 이익(Legitimate Interest)에 근거합니다.</p>
+      <p class="note" data-app="sidefeed">Sidefeed의 Google OAuth는 이용자의 명시적 동의(Consent)에 근거합니다.</p>
+      <p class="note">권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
     </div>
 
-    <div class="section">
-      <h2>7. Google API 데이터 취소</h2>
+    <div class="section" data-app="sidefeed">
+      <h2>Google API 데이터 취소 (Sidefeed)</h2>
       <p>Sidefeed에서 로그아웃하면 기기에 저장된 모든 Google 관련 데이터(OAuth 토큰, 좋아요·구독 캐시)가 즉시 삭제됩니다. Google 계정 보안 설정에서도 Sidefeed의 접근 권한을 직접 취소할 수 있습니다.</p>
     </div>
 
-    <div class="section">
-      <h2>8. 방침 변경</h2>
+    <div class="section" data-app="all">
+      <h2>방침 변경</h2>
       <p>본 방침은 변경될 수 있으며, 변경 시 본 페이지를 통해 공지합니다.</p>
     </div>
 
-    <div class="section">
-      <h2>9. 문의</h2>
+    <div class="section" data-app="all">
+      <h2>문의</h2>
       <p><span class="email" id="email-ko-contact"></span></p>
     </div>
   </div>
@@ -154,63 +175,80 @@
   <div id="lang-en">
     <p class="meta">Effective: April 16, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
     <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
-    <div class="badges">
-      <span class="badge">Pinclip</span>
-      <span class="badge">ThanYesterday</span>
-      <span class="badge">RunNote</span>
-      <span class="badge">Sidefeed</span>
-      <span class="badge">Talk Memo</span>
+    <p class="tab-label">Filter by app</p>
+    <div class="app-tabs">
+      <button class="active" data-filter="all" onclick="filterApp('all')">All</button>
+      <button data-filter="pinclip" onclick="filterApp('pinclip')">Pinclip</button>
+      <button data-filter="thanyesterday" onclick="filterApp('thanyesterday')">ThanYesterday</button>
+      <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
+      <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
+      <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
     </div>
 
-    <div class="section">
-      <h2>1. Information we collect</h2>
+    <div class="section" data-app="all">
+      <h2>Information we collect</h2>
       <p class="sub-label">All apps</p>
       <p>We do not collect personally identifiable information. We do not use advertising or analytics SDKs.</p>
-      <p class="sub-label">Pinclip</p>
-      <p>Bookmarked video URLs and folder structures are stored locally on your device only. If you use iCloud, data may sync via Apple iCloud, subject to Apple's Privacy Policy.</p>
-      <p class="sub-label">ThanYesterday</p>
-      <p>Your device location (precise or approximate) is used to provide weather data via Apple WeatherKit. Location is not stored outside your device.</p>
-      <p class="sub-label">RunNote</p>
-      <div class="warning-box">When using AI coaching features, your running data (distance, pace, heart rate, etc.) is sent to Anthropic's servers (Claude API). Your explicit consent will be requested before this feature is activated.</div>
-      <p>Running data (distance, time, pace, route) and health data via HealthKit (heart rate, calories, etc.) may be collected. This data is used solely to provide AI coaching and is never used for advertising, marketing, or data sales. If you do not use AI coaching, all data remains on-device only.</p>
-      <p class="sub-label">Sidefeed</p>
-      <div class="warning-box">Sidefeed accesses your YouTube liked videos and subscription data via Google OAuth. Consent is requested at sign-in.</div>
-      <p>Google OAuth tokens are securely stored in the device Keychain. Liked video and subscription data is used solely for interest category analysis and is never transmitted to or stored on our servers. Watch history and category preferences are stored on-device only.</p>
-      <p class="sub-label">Talk Memo</p>
-      <p>Audio recorded via the Apple Watch microphone, text memos generated by on-device speech recognition, and recording timestamps are collected. All data is processed entirely on-device and is never transmitted to external servers. Apple's on-device Speech Recognition is used.</p>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Pinclip</p>
+        <p>Video URLs, titles, thumbnails, notes, tags, and folder information you save are stored on your device. For Pinclip Pro subscribers, this data is synced to your Apple iCloud account's private CloudKit database, subject to Apple's Privacy Policy. Metadata (titles, thumbnail URLs) fetched when sharing a URL is requested directly from the origin platform's public API (YouTube, TikTok, etc.) and never passes through our servers.</p>
+      </div>
+      <div class="app-block" data-app="thanyesterday">
+        <p class="sub-label">ThanYesterday</p>
+        <p>Your device location (precise or approximate) is used to provide weather data via Apple WeatherKit. Location is not stored outside your device.</p>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">RunNote</p>
+        <div class="warning-box">When using AI coaching features, your running data (distance, pace, heart rate, etc.) is sent to Anthropic's servers (Claude API). Your explicit consent will be requested before this feature is activated.</div>
+        <p>Running data (distance, time, pace, route) and health data via HealthKit (heart rate, calories, etc.) may be collected. This data is used solely to provide AI coaching and is never used for advertising, marketing, or data sales. If you do not use AI coaching, all data remains on-device only.</p>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Sidefeed</p>
+        <div class="warning-box">Sidefeed accesses your YouTube liked videos and subscription data via Google OAuth. Consent is requested at sign-in.</div>
+        <p>Google OAuth tokens are securely stored in the device Keychain. Liked video and subscription data is used solely for interest category analysis and is never transmitted to or stored on our servers. Watch history and category preferences are stored on-device only.</p>
+      </div>
+      <div class="app-block" data-app="talkmemo">
+        <p class="sub-label">Talk Memo</p>
+        <p>Audio recorded via the Apple Watch microphone, text memos generated by on-device speech recognition, and recording timestamps are collected. All data is processed entirely on-device and is never transmitted to external servers. Apple's on-device Speech Recognition is used.</p>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>2. How we use information</h2>
+    <div class="section" data-app="all">
+      <h2>How we use information</h2>
       <p>Data is used solely to provide app functionality. We do not sell or share it with third parties.</p>
     </div>
 
-    <div class="section">
-      <h2>3. Third-party services</h2>
+    <div class="section" data-app="all">
+      <h2>Third-party services</h2>
       <table>
-        <tr><td>Apple WeatherKit</td><td>ThanYesterday — weather data</td></tr>
-        <tr><td>Apple HealthKit / iCloud</td><td>Pinclip, RunNote — health &amp; sync</td></tr>
-        <tr><td>Anthropic (Claude API)</td><td>RunNote — AI coaching (with consent)</td></tr>
-        <tr><td>Google OAuth 2.0</td><td>Sidefeed — YouTube account auth</td></tr>
-        <tr><td>YouTube Data API v3</td><td>Sidefeed — video discovery &amp; trending</td></tr>
-        <tr><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
+        <tr data-app="thanyesterday"><td>Apple WeatherKit</td><td>ThanYesterday — weather data</td></tr>
+        <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro subscriber data sync</td></tr>
+        <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — health data</td></tr>
+        <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI coaching (with consent)</td></tr>
+        <tr data-app="sidefeed"><td>Google OAuth 2.0</td><td>Sidefeed — YouTube account auth</td></tr>
+        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — video discovery &amp; trending</td></tr>
+        <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
       </table>
-      <p class="note">Data sent via Anthropic API is not used for model training and is automatically deleted after 7 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
-      <p class="note">YouTube API usage is subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. Google OAuth tokens are stored only in the device Keychain and are never transmitted to our servers.</p>
+      <p class="note" data-app="runnote">Data sent via Anthropic API is not used for model training and is automatically deleted after 7 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
+      <p class="note" data-app="sidefeed">YouTube API usage is subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. Google OAuth tokens are stored only in the device Keychain and are never transmitted to our servers.</p>
     </div>
 
-    <div class="section">
-      <h2>4. Data retention &amp; deletion</h2>
-      <p>All data is deleted when you uninstall the app. Data sent to Anthropic via AI coaching is automatically deleted after 7 days. Sidefeed's Google OAuth tokens are removed from Keychain upon app deletion. Talk Memo's recordings and text data are stored only in the App Group local storage and are removed upon app deletion. We do not retain user data on any external server.</p>
+    <div class="section" data-app="all">
+      <h2>Data retention &amp; deletion</h2>
+      <p>By default, all data is deleted when you uninstall the app. We do not retain user data on any external server.</p>
+      <p data-app="pinclip">Pinclip Pro's iCloud-synced data is stored in your iCloud account and may remain in iCloud even after the app is deleted. You can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; "Pinclip".</p>
+      <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted after 7 days.</p>
+      <p data-app="sidefeed">Sidefeed's Google OAuth tokens are immediately removed from the device Keychain upon sign-out or app deletion.</p>
+      <p data-app="talkmemo">Talk Memo's recordings and text data are stored only in the App Group local storage and are removed upon app deletion.</p>
     </div>
 
-    <div class="section">
-      <h2>5. Children's privacy</h2>
+    <div class="section" data-app="all">
+      <h2>Children's privacy</h2>
       <p>Our apps are not directed at children under 13. We do not knowingly collect personal information from children.</p>
     </div>
 
-    <div class="section">
-      <h2>6. EU User Rights (GDPR)</h2>
+    <div class="section" data-app="all">
+      <h2>EU User Rights (GDPR)</h2>
       <p>If you are located in the EU/EEA, you have the following rights.</p>
       <table>
         <tr><td>Right of access</td><td>Request a copy of data we hold about you</td></tr>
@@ -218,21 +256,23 @@
         <tr><td>Right to restriction</td><td>Request that we stop processing certain data</td></tr>
         <tr><td>Right to object</td><td>Object to our processing of your data</td></tr>
       </table>
-      <p class="note">Data transmitted to Anthropic for RunNote's AI coaching is based on Legitimate Interest for service provision. Sidefeed's Google OAuth is based on explicit user Consent. To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
+      <p class="note" data-app="runnote">Data transmitted to Anthropic for RunNote's AI coaching is based on Legitimate Interest for service provision.</p>
+      <p class="note" data-app="sidefeed">Sidefeed's Google OAuth is based on explicit user Consent.</p>
+      <p class="note">To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
     </div>
 
-    <div class="section">
-      <h2>7. Revoking Google API access</h2>
+    <div class="section" data-app="sidefeed">
+      <h2>Revoking Google API access (Sidefeed)</h2>
       <p>Signing out of Sidefeed immediately deletes all Google-related data (OAuth tokens, liked/subscription cache) from the device. You can also revoke Sidefeed's access from your Google Account security settings.</p>
     </div>
 
-    <div class="section">
-      <h2>8. Changes to this policy</h2>
+    <div class="section" data-app="all">
+      <h2>Changes to this policy</h2>
       <p>We may update this policy. Changes will be posted on this page.</p>
     </div>
 
-    <div class="section">
-      <h2>9. Contact</h2>
+    <div class="section" data-app="all">
+      <h2>Contact</h2>
       <p><span class="email" id="email-en-contact"></span></p>
     </div>
   </div>
@@ -253,6 +293,17 @@ function showLang(lang) {
   document.getElementById('lang-en').style.display = lang === 'en' ? 'block' : 'none';
   document.querySelectorAll('.lang-btns button').forEach(function(btn, i) {
     btn.classList.toggle('active', (lang === 'ko' && i === 0) || (lang === 'en' && i === 1));
+  });
+}
+
+function filterApp(app) {
+  document.querySelectorAll('[data-app]').forEach(function(el) {
+    var apps = el.getAttribute('data-app').split(' ');
+    var show = app === 'all' || apps.indexOf('all') !== -1 || apps.indexOf(app) !== -1;
+    el.style.display = show ? '' : 'none';
+  });
+  document.querySelectorAll('.app-tabs button').forEach(function(btn) {
+    btn.classList.toggle('active', btn.dataset.filter === app);
   });
 }
 </script>
