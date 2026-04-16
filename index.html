@@ -65,12 +65,14 @@
 
   <!-- 한국어 -->
   <div id="lang-ko" style="display:none;">
-    <p class="meta">시행일: 2026년 3월 19일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
-    <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 3개 앱 모두에 적용됩니다.</p>
+    <p class="meta">시행일: 2026년 4월 16일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
     <div class="badges">
       <span class="badge">Pinclip</span>
       <span class="badge">어제보다</span>
       <span class="badge">RunNote</span>
+      <span class="badge">Sidefeed</span>
+      <span class="badge">Talk Memo</span>
     </div>
 
     <div class="section">
@@ -84,6 +86,11 @@
       <p class="sub-label">RunNote</p>
       <div class="warning-box">AI 코칭 기능 사용 시, 러닝 데이터(거리, 페이스, 심박수 등)가 Anthropic(Claude API)의 서버로 전송됩니다. 이 기능을 사용하기 전에 별도의 동의를 요청합니다.</div>
       <p>러닝 기록(거리, 시간, 페이스, 경로 등) 및 건강 데이터(HealthKit — 심박수, 칼로리 등)를 수집합니다. AI 코칭 기능 제공 목적으로만 사용되며, 광고·마케팅·데이터 판매에 사용되지 않습니다. AI 코칭 기능을 사용하지 않는 경우 데이터는 기기 내에만 저장됩니다.</p>
+      <p class="sub-label">Sidefeed</p>
+      <div class="warning-box">Sidefeed는 Google OAuth를 통해 YouTube 좋아요 영상 및 구독 채널 정보에 접근합니다. 로그인 시 동의를 요청합니다.</div>
+      <p>Google OAuth 인증 토큰은 기기의 Keychain에 안전하게 저장됩니다. 좋아요 영상 및 구독 채널 정보는 관심 카테고리 분석에만 사용되며, 당사 서버에 전송되거나 저장되지 않습니다. 시청한 영상 기록 및 카테고리 설정은 기기 내에만 저장됩니다.</p>
+      <p class="sub-label">Talk Memo</p>
+      <p>Apple Watch 마이크를 통해 녹음된 오디오, 온디바이스 음성 인식으로 생성된 텍스트 메모, 녹음 시각 타임스탬프를 수집합니다. 모든 데이터는 기기 내에서만 처리되며, 외부 서버로 전송되지 않습니다. Apple의 온디바이스 Speech Recognition을 사용합니다.</p>
     </div>
 
     <div class="section">
@@ -97,13 +104,17 @@
         <tr><td>Apple WeatherKit</td><td>어제보다 — 날씨 데이터</td></tr>
         <tr><td>Apple HealthKit / iCloud</td><td>Pinclip, RunNote — 건강·동기화</td></tr>
         <tr><td>Anthropic (Claude API)</td><td>RunNote — AI 코칭 기능 (동의 후)</td></tr>
+        <tr><td>Google OAuth 2.0</td><td>Sidefeed — YouTube 계정 인증</td></tr>
+        <tr><td>YouTube Data API v3</td><td>Sidefeed — 영상 발견·트렌딩</td></tr>
+        <tr><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
       </table>
       <p class="note">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 7일 후 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
+      <p class="note">YouTube API 사용은 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다. Google OAuth 토큰은 기기 Keychain에만 저장되며 당사 서버로 전송되지 않습니다.</p>
     </div>
 
     <div class="section">
       <h2>4. 데이터 보관 및 삭제</h2>
-      <p>모든 데이터는 앱을 삭제하면 함께 삭제됩니다. AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다. 당사는 별도의 서버에 이용자 데이터를 보관하지 않습니다.</p>
+      <p>모든 데이터는 앱을 삭제하면 함께 삭제됩니다. AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다. Sidefeed의 Google OAuth 토큰은 앱 삭제 시 Keychain에서 제거됩니다. Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에만 보관되며, 앱 삭제 시 함께 제거됩니다. 당사는 별도의 서버에 이용자 데이터를 보관하지 않습니다.</p>
     </div>
 
     <div class="section">
@@ -120,28 +131,35 @@
         <tr><td>전송 제한권</td><td>특정 데이터 처리 중단 요청</td></tr>
         <tr><td>이의 제기권</td><td>데이터 처리에 대한 이의 제기</td></tr>
       </table>
-      <p class="note">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 서비스 제공을 위한 적법한 이익(Legitimate Interest)에 근거합니다. 권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
+      <p class="note">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 서비스 제공을 위한 적법한 이익(Legitimate Interest)에 근거합니다. Sidefeed의 Google OAuth는 이용자의 명시적 동의(Consent)에 근거합니다. 권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
     </div>
 
     <div class="section">
-      <h2>7. 방침 변경</h2>
+      <h2>7. Google API 데이터 취소</h2>
+      <p>Sidefeed에서 로그아웃하면 기기에 저장된 모든 Google 관련 데이터(OAuth 토큰, 좋아요·구독 캐시)가 즉시 삭제됩니다. Google 계정 보안 설정에서도 Sidefeed의 접근 권한을 직접 취소할 수 있습니다.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. 방침 변경</h2>
       <p>본 방침은 변경될 수 있으며, 변경 시 본 페이지를 통해 공지합니다.</p>
     </div>
 
     <div class="section">
-      <h2>8. 문의</h2>
+      <h2>9. 문의</h2>
       <p><span class="email" id="email-ko-contact"></span></p>
     </div>
   </div>
 
   <!-- English -->
   <div id="lang-en">
-    <p class="meta">Effective: March 19, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
-    <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all three apps.</p>
+    <p class="meta">Effective: April 16, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
     <div class="badges">
       <span class="badge">Pinclip</span>
       <span class="badge">ThanYesterday</span>
       <span class="badge">RunNote</span>
+      <span class="badge">Sidefeed</span>
+      <span class="badge">Talk Memo</span>
     </div>
 
     <div class="section">
@@ -155,6 +173,11 @@
       <p class="sub-label">RunNote</p>
       <div class="warning-box">When using AI coaching features, your running data (distance, pace, heart rate, etc.) is sent to Anthropic's servers (Claude API). Your explicit consent will be requested before this feature is activated.</div>
       <p>Running data (distance, time, pace, route) and health data via HealthKit (heart rate, calories, etc.) may be collected. This data is used solely to provide AI coaching and is never used for advertising, marketing, or data sales. If you do not use AI coaching, all data remains on-device only.</p>
+      <p class="sub-label">Sidefeed</p>
+      <div class="warning-box">Sidefeed accesses your YouTube liked videos and subscription data via Google OAuth. Consent is requested at sign-in.</div>
+      <p>Google OAuth tokens are securely stored in the device Keychain. Liked video and subscription data is used solely for interest category analysis and is never transmitted to or stored on our servers. Watch history and category preferences are stored on-device only.</p>
+      <p class="sub-label">Talk Memo</p>
+      <p>Audio recorded via the Apple Watch microphone, text memos generated by on-device speech recognition, and recording timestamps are collected. All data is processed entirely on-device and is never transmitted to external servers. Apple's on-device Speech Recognition is used.</p>
     </div>
 
     <div class="section">
@@ -168,13 +191,17 @@
         <tr><td>Apple WeatherKit</td><td>ThanYesterday — weather data</td></tr>
         <tr><td>Apple HealthKit / iCloud</td><td>Pinclip, RunNote — health &amp; sync</td></tr>
         <tr><td>Anthropic (Claude API)</td><td>RunNote — AI coaching (with consent)</td></tr>
+        <tr><td>Google OAuth 2.0</td><td>Sidefeed — YouTube account auth</td></tr>
+        <tr><td>YouTube Data API v3</td><td>Sidefeed — video discovery &amp; trending</td></tr>
+        <tr><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
       </table>
       <p class="note">Data sent via Anthropic API is not used for model training and is automatically deleted after 7 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
+      <p class="note">YouTube API usage is subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. Google OAuth tokens are stored only in the device Keychain and are never transmitted to our servers.</p>
     </div>
 
     <div class="section">
       <h2>4. Data retention &amp; deletion</h2>
-      <p>All data is deleted when you uninstall the app. Data sent to Anthropic via AI coaching is automatically deleted after 7 days. We do not retain user data on any external server.</p>
+      <p>All data is deleted when you uninstall the app. Data sent to Anthropic via AI coaching is automatically deleted after 7 days. Sidefeed's Google OAuth tokens are removed from Keychain upon app deletion. Talk Memo's recordings and text data are stored only in the App Group local storage and are removed upon app deletion. We do not retain user data on any external server.</p>
     </div>
 
     <div class="section">
@@ -191,16 +218,21 @@
         <tr><td>Right to restriction</td><td>Request that we stop processing certain data</td></tr>
         <tr><td>Right to object</td><td>Object to our processing of your data</td></tr>
       </table>
-      <p class="note">Data transmitted to Anthropic for RunNote's AI coaching feature is based on Legitimate Interest for service provision. To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
+      <p class="note">Data transmitted to Anthropic for RunNote's AI coaching is based on Legitimate Interest for service provision. Sidefeed's Google OAuth is based on explicit user Consent. To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
     </div>
 
     <div class="section">
-      <h2>7. Changes to this policy</h2>
+      <h2>7. Revoking Google API access</h2>
+      <p>Signing out of Sidefeed immediately deletes all Google-related data (OAuth tokens, liked/subscription cache) from the device. You can also revoke Sidefeed's access from your Google Account security settings.</p>
+    </div>
+
+    <div class="section">
+      <h2>8. Changes to this policy</h2>
       <p>We may update this policy. Changes will be posted on this page.</p>
     </div>
 
     <div class="section">
-      <h2>8. Contact</h2>
+      <h2>9. Contact</h2>
       <p><span class="email" id="email-en-contact"></span></p>
     </div>
   </div>
