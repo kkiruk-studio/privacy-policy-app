@@ -100,9 +100,10 @@
       </div>
       <div class="app-block" data-app="sidefeed">
         <p class="sub-label">Sidefeed</p>
-        <div class="warning-box">Sidefeed는 Google OAuth를 통해 YouTube 좋아요 영상 및 구독 채널 정보에 접근합니다. 로그인 시 동의를 요청합니다.</div>
-        <p>Google OAuth 인증 토큰은 기기의 Keychain에 안전하게 저장됩니다. 좋아요 영상 및 구독 채널 정보는 관심 카테고리 분석에만 사용되며, 당사 서버에 전송되거나 저장되지 않습니다. 시청한 영상 기록 및 카테고리 설정은 기기 내에만 저장됩니다.</p>
-        <p>Sidefeed의 Google API 사용은 <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" class="email">Google API Services User Data Policy</a>(Limited Use 요건 포함)를 준수합니다. YouTube 좋아요·구독 정보는 관심 카테고리 분석 목적으로만 사용되며, 당사 서버로 전송·저장되지 않고, 제3자에게 양도·판매되지 않으며, 광고 등 관련 없는 목적으로 사용되지 않습니다. 인간 검토자는 이용자의 명시적 동의가 있거나 법적으로 요구되는 경우를 제외하고 해당 데이터를 읽지 않습니다.</p>
+        <p>"Powered by YouTube." Sidefeed는 이용자의 Google 계정 인증을 요구하지 않으며, 개인 YouTube 데이터(좋아요·구독·시청 기록)에 접근하지 않습니다.</p>
+        <p>당사 서버(Cloudflare Workers)가 YouTube Data API v3를 호출하여 국가별·카테고리별 공개 인기 영상의 메타데이터(제목, 썸네일, 채널명, 길이 등)를 수집하고, Cloudflare Workers KV에 임시 캐싱합니다. 이 데이터에는 개별 이용자를 식별할 수 있는 정보가 포함되지 않습니다.</p>
+        <p>이용자가 선택한 관심 카테고리, 시청한 영상 기록, 국가 설정, 구독 상태는 기기 내 UserDefaults 및 SwiftData에만 저장되며 당사 서버로 전송되지 않습니다. 인앱 구독(Sidefeed Pro) 결제 및 영수증 검증은 Apple StoreKit을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
+        <p>Sidefeed의 YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -122,12 +123,13 @@
         <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro 구독자 데이터 동기화</td></tr>
         <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — 건강 데이터</td></tr>
         <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI 코칭 기능 (동의 후)</td></tr>
-        <tr data-app="sidefeed"><td>Google OAuth 2.0</td><td>Sidefeed — YouTube 계정 인증</td></tr>
-        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — 영상 발견·트렌딩</td></tr>
+        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — 공개 영상 메타데이터 (서버 측 호출)</td></tr>
+        <tr data-app="sidefeed"><td>Cloudflare Workers + KV</td><td>Sidefeed — 공개 영상 데이터 서버 캐시</td></tr>
+        <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro 구독 결제·영수증 검증</td></tr>
         <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
       </table>
       <p class="note" data-app="runnote">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 7일 후 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
-      <p class="note" data-app="sidefeed">YouTube API 사용은 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다. Google OAuth 토큰은 기기 Keychain에만 저장되며 당사 서버로 전송되지 않습니다.</p>
+      <p class="note" data-app="sidefeed">Sidefeed는 Google 계정 인증을 사용하지 않으며, YouTube API는 서버 측에서만 호출되어 공개 영상 메타데이터만 조회합니다. YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -156,11 +158,21 @@
       <div class="app-block" data-app="sidefeed">
         <p class="sub-label">Google LLC (미국)</p>
         <ul>
-          <li>이전 항목: OAuth 인증 토큰, YouTube 좋아요/구독 채널 정보</li>
-          <li>이전 시점·방법: 이용자의 Google 로그인 및 YouTube Data API 호출 시</li>
-          <li>이전 목적: YouTube 계정 인증 및 좋아요/구독 정보 조회</li>
-          <li>보유·이용 기간: <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>에 따름. OAuth 토큰은 로그아웃 또는 앱 삭제 시 기기에서 즉시 삭제</li>
-          <li>거부 방법: Sidefeed 로그인을 하지 않거나, Google 계정 보안 설정에서 Sidefeed 접근 권한을 취소</li>
+          <li>이전 항목: 공개 영상 메타데이터 조회 요청 (이용자 식별 정보 미포함)</li>
+          <li>이전 시점·방법: 당사 서버가 YouTube Data API v3를 호출할 때 (이용자 단말에서 직접 전송되지 않음)</li>
+          <li>이전 목적: 국가별·카테고리별 공개 인기 영상 메타데이터 조회</li>
+          <li>보유·이용 기간: <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>에 따름. 당사 서버 캐시는 최대 48시간 내 자동 만료.</li>
+          <li>거부 방법: 해당 없음 (개인 식별 정보가 전송되지 않음)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Cloudflare, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: 공개 영상 메타데이터 캐시 (이용자 식별 불가), 이용자 IP(엣지 네트워크 라우팅용)</li>
+          <li>이전 시점·방법: 앱이 당사 서버 엔드포인트에 요청 시 TLS 전송</li>
+          <li>이전 목적: Cloudflare Workers 엣지 캐싱 및 서비스 제공</li>
+          <li>보유·이용 기간: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름</li>
+          <li>거부 방법: 앱을 사용하지 않음</li>
         </ul>
       </div>
     </div>
@@ -170,7 +182,7 @@
       <p>기본적으로 모든 데이터는 앱을 삭제하면 함께 삭제됩니다. 당사는 별도의 서버에 이용자 데이터를 보관하지 않습니다.</p>
       <p data-app="pinclip">Pinclip Pro의 iCloud 동기화 데이터는 사용자의 iCloud 계정에 저장되며, 앱을 삭제해도 iCloud에는 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; "Pinclip" 항목에서 직접 삭제할 수 있습니다.</p>
       <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다.</p>
-      <p data-app="sidefeed">Sidefeed의 Google OAuth 토큰은 로그아웃 또는 앱 삭제 시 기기 Keychain에서 즉시 제거됩니다.</p>
+      <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
       <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에만 보관되며, 앱 삭제 시 함께 제거됩니다.</p>
     </div>
 
@@ -203,7 +215,7 @@
         <tr><td>이의 제기권</td><td>데이터 처리에 대한 이의 제기</td></tr>
       </table>
       <p class="note" data-app="runnote">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 서비스 제공을 위한 적법한 이익(Legitimate Interest)에 근거합니다.</p>
-      <p class="note" data-app="sidefeed">Sidefeed의 Google OAuth는 이용자의 명시적 동의(Consent)에 근거합니다.</p>
+      <p class="note" data-app="sidefeed">Sidefeed는 이용자 개인정보를 수집하지 않으므로, GDPR 상 처리 근거가 필요한 개인정보 처리 행위는 발생하지 않습니다.</p>
       <p class="note">권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
       <p class="note">EU/EEA 이용자는 거주 회원국의 개인정보 감독기관(Supervisory Authority)에 이의를 제기할 권리가 있습니다.</p>
     </div>
@@ -219,8 +231,8 @@
     </div>
 
     <div class="section" data-app="sidefeed">
-      <h2>Google API 데이터 취소 (Sidefeed)</h2>
-      <p>Sidefeed에서 로그아웃하면 기기에 저장된 모든 Google 관련 데이터(OAuth 토큰, 좋아요·구독 캐시)가 즉시 삭제됩니다. Google 계정 보안 설정에서도 Sidefeed의 접근 권한을 직접 취소할 수 있습니다.</p>
+      <h2>Sidefeed 데이터 삭제</h2>
+      <p>Sidefeed는 Google 계정 인증이나 개인 YouTube 데이터를 사용하지 않습니다. 기기 내에 저장된 모든 이용자 설정(관심 카테고리, 시청 기록, 국가 선택)은 앱을 삭제하면 함께 제거됩니다. 당사 서버에는 이용자를 식별할 수 있는 정보가 저장되지 않습니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -278,9 +290,10 @@
       </div>
       <div class="app-block" data-app="sidefeed">
         <p class="sub-label">Sidefeed</p>
-        <div class="warning-box">Sidefeed accesses your YouTube liked videos and subscription data via Google OAuth. Consent is requested at sign-in.</div>
-        <p>Google OAuth tokens are securely stored in the device Keychain. Liked video and subscription data is used solely for interest category analysis and is never transmitted to or stored on our servers. Watch history and category preferences are stored on-device only.</p>
-        <p>Sidefeed's use of Google APIs complies with the <a href="https://developers.google.com/terms/api-services-user-data-policy" target="_blank" class="email">Google API Services User Data Policy</a>, including the Limited Use requirements. YouTube liked and subscription data is used solely for interest category analysis, is never transmitted to or stored on our servers, is never transferred or sold to third parties, and is never used for advertising or purposes unrelated to providing the app's features. No human reads this data unless we have your explicit consent or are legally required to.</p>
+        <p>"Powered by YouTube." Sidefeed does not require Google account authentication and does not access your personal YouTube data (liked videos, subscriptions, or watch history).</p>
+        <p>Our server (Cloudflare Workers) calls the YouTube Data API v3 to fetch metadata (titles, thumbnails, channel names, durations, etc.) for public country- and category-level popular videos, and temporarily caches this data in Cloudflare Workers KV. This data does not contain any information that identifies individual users.</p>
+        <p>Your selected interest categories, watched-video history, country preferences, and subscription state are stored only on-device in UserDefaults and SwiftData, and are never transmitted to our servers. In-app subscription (Sidefeed Pro) purchases and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
+        <p>Sidefeed's use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -300,12 +313,13 @@
         <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro subscriber data sync</td></tr>
         <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — health data</td></tr>
         <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI coaching (with consent)</td></tr>
-        <tr data-app="sidefeed"><td>Google OAuth 2.0</td><td>Sidefeed — YouTube account auth</td></tr>
-        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — video discovery &amp; trending</td></tr>
+        <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — public video metadata (server-side calls)</td></tr>
+        <tr data-app="sidefeed"><td>Cloudflare Workers + KV</td><td>Sidefeed — server cache for public video data</td></tr>
+        <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro subscription payment &amp; receipt validation</td></tr>
         <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
       </table>
       <p class="note" data-app="runnote">Data sent via Anthropic API is not used for model training and is automatically deleted after 7 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
-      <p class="note" data-app="sidefeed">YouTube API usage is subject to <a href="https://policies.google.com/privacy" target="_blank">Google's Privacy Policy</a>. Google OAuth tokens are stored only in the device Keychain and are never transmitted to our servers.</p>
+      <p class="note" data-app="sidefeed">Sidefeed does not use Google account authentication. YouTube API calls are made server-side only and fetch public video metadata. Use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -334,11 +348,21 @@
       <div class="app-block" data-app="sidefeed">
         <p class="sub-label">Google LLC (United States)</p>
         <ul>
-          <li>Data: OAuth tokens, YouTube liked videos / subscribed channels</li>
-          <li>Timing &amp; method: during Google sign-in and YouTube Data API calls</li>
-          <li>Purpose: YouTube account authentication and retrieving liked / subscription data</li>
-          <li>Retention: governed by the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>. OAuth tokens are removed from the device immediately upon sign-out or app deletion</li>
-          <li>Opt-out: do not sign in to Sidefeed, or revoke Sidefeed's access from your Google Account security settings</li>
+          <li>Data: public video metadata queries (no user-identifying information)</li>
+          <li>Timing &amp; method: when our server calls the YouTube Data API v3 (not sent directly from your device)</li>
+          <li>Purpose: retrieving public country- and category-level popular video metadata</li>
+          <li>Retention: governed by the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>. Our server cache expires automatically within at most 48 hours.</li>
+          <li>Opt-out: not applicable (no personally identifying information is transmitted)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="sidefeed">
+        <p class="sub-label">Cloudflare, Inc. (United States)</p>
+        <ul>
+          <li>Data: public video metadata cache (no user-identifying content), your IP address (for edge network routing)</li>
+          <li>Timing &amp; method: TLS transmission when the app queries our server endpoint</li>
+          <li>Purpose: Cloudflare Workers edge caching and service delivery</li>
+          <li>Retention: governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a></li>
+          <li>Opt-out: do not use the app</li>
         </ul>
       </div>
     </div>
@@ -348,7 +372,7 @@
       <p>By default, all data is deleted when you uninstall the app. We do not retain user data on any external server.</p>
       <p data-app="pinclip">Pinclip Pro's iCloud-synced data is stored in your iCloud account and may remain in iCloud even after the app is deleted. You can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; "Pinclip".</p>
       <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted after 7 days.</p>
-      <p data-app="sidefeed">Sidefeed's Google OAuth tokens are immediately removed from the device Keychain upon sign-out or app deletion.</p>
+      <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
       <p data-app="talkmemo">Talk Memo's recordings and text data are stored only in the App Group local storage and are removed upon app deletion.</p>
     </div>
 
@@ -381,7 +405,7 @@
         <tr><td>Right to object</td><td>Object to our processing of your data</td></tr>
       </table>
       <p class="note" data-app="runnote">Data transmitted to Anthropic for RunNote's AI coaching is based on Legitimate Interest for service provision.</p>
-      <p class="note" data-app="sidefeed">Sidefeed's Google OAuth is based on explicit user Consent.</p>
+      <p class="note" data-app="sidefeed">Sidefeed does not collect personal data, so there is no personal data processing that requires a legal basis under GDPR.</p>
       <p class="note">To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
       <p class="note">EU/EEA residents also have the right to lodge a complaint with the supervisory authority in their country of residence.</p>
     </div>
@@ -397,8 +421,8 @@
     </div>
 
     <div class="section" data-app="sidefeed">
-      <h2>Revoking Google API access (Sidefeed)</h2>
-      <p>Signing out of Sidefeed immediately deletes all Google-related data (OAuth tokens, liked/subscription cache) from the device. You can also revoke Sidefeed's access from your Google Account security settings.</p>
+      <h2>Sidefeed data deletion</h2>
+      <p>Sidefeed does not use Google account authentication and does not access personal YouTube data. All on-device preferences (interest categories, watch history, country selection) are removed when you uninstall the app. Our server does not store any user-identifying information.</p>
     </div>
 
     <div class="section" data-app="all">
