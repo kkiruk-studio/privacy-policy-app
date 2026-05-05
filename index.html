@@ -79,6 +79,7 @@
       <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
       <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
+      <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
     </div>
 
     <div class="section" data-app="all">
@@ -104,6 +105,12 @@
         <p>당사 서버(Cloudflare Workers)가 YouTube Data API v3를 호출하여 국가별·카테고리별 공개 인기 영상의 메타데이터(제목, 썸네일, 채널명, 길이 등)를 수집하고, Cloudflare Workers KV에 임시 캐싱합니다. 이 데이터에는 개별 이용자를 식별할 수 있는 정보가 포함되지 않습니다.</p>
         <p>이용자가 선택한 관심 카테고리, 시청한 영상 기록, 국가 설정, 구독 상태는 기기 내 UserDefaults 및 SwiftData에만 저장되며 당사 서버로 전송되지 않습니다. 인앱 구독(Sidefeed Pro) 결제 및 영수증 검증은 Apple StoreKit을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
         <p>Sidefeed의 YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank" class="email">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
+      </div>
+      <div class="app-block" data-app="honestcamera">
+        <p class="sub-label">Honest Camera</p>
+        <p>당사는 Honest Camera 이용자로부터 어떠한 개인정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템이 모두 부재합니다.</p>
+        <p>앱은 카메라 권한과 사진 보관함 추가 권한만 사용합니다. 촬영된 이미지는 사용자 기기 내에서만 처리되어 사진 보관함에 저장되며, 당사 서버나 외부 서비스로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+        <p>온보딩 완료 여부 플래그는 기기 내 UserDefaults 에만 저장되며, 외부로 전송되지 않습니다.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -205,6 +212,7 @@
       <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다.</p>
       <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
       <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에 보관되며, iCloud 동기화가 켜져 있는 경우 사용자의 iCloud 계정에도 저장됩니다. 앱을 삭제해도 iCloud 데이터는 남을 수 있으며, iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리에서 직접 삭제할 수 있습니다.</p>
+      <p data-app="honestcamera">Honest Camera는 사용자 데이터를 자체 서버에 저장하지 않습니다. 촬영된 사진은 iOS 사진 보관함에 저장되며, 이는 Apple Photos 프레임워크가 관리합니다. 앱을 삭제하면 앱이 보유하던 모든 설정(예: 온보딩 완료 플래그)이 함께 제거됩니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -224,6 +232,7 @@
     <div class="section" data-app="all">
       <h2>아동 개인정보 보호</h2>
       <p>당사는 이용자가 속한 지역의 법률에서 정한 최소 연령(예: 대한민국 만 14세, 미국 13세, EU 회원국별 13~16세) 미만의 아동에 대해서는 법정대리인의 동의 없이 개인정보를 수집하지 않습니다. 해당 연령 미만 아동이 법정대리인 동의 없이 개인정보를 제공한 사실이 확인되면 지체 없이 해당 정보를 삭제합니다.</p>
+      <p data-app="honestcamera"><strong>Honest Camera 특기 사항</strong>: 본 앱은 3세 이상 유아의 직접 사용을 전제로 설계되었으며, 의도적으로 어떠한 개인정보도 수집하지 않습니다. 광고, 인앱 결제, 외부 SDK, 계정 연동, 분석 도구가 모두 부재하므로 미국 COPPA, EU GDPR-K, 한국 정보통신망법 상 아동 개인정보 처리에 해당하는 행위가 발생하지 않습니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -290,6 +299,7 @@
       <button data-filter="runnote" onclick="filterApp('runnote')">RunNote</button>
       <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
+      <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
     </div>
 
     <div class="section" data-app="all">
@@ -315,6 +325,12 @@
         <p>Our server (Cloudflare Workers) calls the YouTube Data API v3 to fetch metadata (titles, thumbnails, channel names, durations, etc.) for public country- and category-level popular videos, and temporarily caches this data in Cloudflare Workers KV. This data does not contain any information that identifies individual users.</p>
         <p>Your selected interest categories, watched-video history, country preferences, and subscription state are stored only on-device in UserDefaults and SwiftData, and are never transmitted to our servers. In-app subscription (Sidefeed Pro) purchases and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
         <p>Sidefeed's use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank" class="email">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank" class="email">Google Privacy Policy</a>.</p>
+      </div>
+      <div class="app-block" data-app="honestcamera">
+        <p class="sub-label">Honest Camera</p>
+        <p>We do not collect, transmit, or store any personal information from Honest Camera users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, and no account system.</p>
+        <p>The app uses only Camera and Photo Library Add permissions. Captured images are processed entirely on-device and saved to your Photos library; they are never transmitted to our servers or any external service. Permissions can be changed at any time in iOS Settings.</p>
+        <p>An onboarding-completion flag is stored only in on-device UserDefaults and is never transmitted externally.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -416,6 +432,7 @@
       <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted after 7 days.</p>
       <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
       <p data-app="talkmemo">Talk Memo's recordings and text data are stored in App Group local storage; if iCloud sync is enabled, they are also stored in your iCloud account. iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
+      <p data-app="honestcamera">Honest Camera does not store user data on any external server. Captured photos are saved to the iOS Photos library and managed by Apple's Photos framework. When you uninstall the app, all in-app preferences (such as the onboarding-completion flag) are removed.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -435,6 +452,7 @@
     <div class="section" data-app="all">
       <h2>Children's privacy</h2>
       <p>We do not knowingly collect personal information from children below the minimum age required by applicable local law (for example, age 14 in the Republic of Korea, age 13 in the United States, and between 13 and 16 in EU member states) without verified consent from a legal guardian. If we become aware that such a child has provided personal information without the required consent, we will delete it promptly.</p>
+      <p data-app="honestcamera"><strong>Honest Camera note</strong>: This app is intentionally designed for direct use by children ages 3 and up and deliberately collects no personal information. It contains no advertising, no in-app purchases, no third-party SDKs, no account integrations, and no analytics. As such, it does not engage in any processing of children's personal information that would fall under U.S. COPPA, EU GDPR-K, or applicable Korean information protection laws.</p>
     </div>
 
     <div class="section" data-app="all">
