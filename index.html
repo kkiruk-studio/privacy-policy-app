@@ -80,6 +80,7 @@
       <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Find Local</button>
     </div>
 
     <div class="section" data-app="all">
@@ -112,6 +113,13 @@
         <p>앱은 카메라 권한과 사진 보관함 추가 권한만 사용합니다. 촬영된 이미지는 사용자 기기 내에서만 처리되어 사진 보관함에 저장되며, 당사 서버나 외부 서비스로 전송되지 않습니다. 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
         <p>온보딩 완료 여부 플래그는 기기 내 UserDefaults 에만 저장되며, 외부로 전송되지 않습니다.</p>
       </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">Find Local</p>
+        <p>당사는 Find Local 이용자로부터 어떠한 개인정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p>이용자가 입력한 검색어, 저장한 장소(쿼리·국가·도시), 마지막 선택한 여행 지역과 도시는 기기 내 UserDefaults 에 저장됩니다. 추가로 최근 검색어와 저장한 장소는 사용자의 Apple iCloud 계정 내 Key-Value Store 에도 자동으로 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p>검색 별칭 사전(약 2,800개 장소명)은 앱 번들에 포함되어 있어 검색 후보 생성에 인터넷 통신이 필요하지 않습니다.</p>
+        <p>지도 앱(Apple Maps · Google Maps · Naver Map · KakaoMap · Amap) 실행은 iOS 시스템의 URL 스킴/딥링크를 통해 이루어집니다. 이용자가 후보를 선택해 지도 앱을 탭하면 검색어가 해당 지도 앱의 URL 스킴 파라미터로 전달되며, 그 이후 검색어 처리는 각 지도 앱의 개인정보 보호방침을 따릅니다. 지도 앱이 설치되어 있지 않을 경우 시스템 기본 브라우저로 웹 지도 페이지가 열립니다.</p>
+      </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
         <p>Apple Watch 마이크를 통해 녹음된 오디오, 온디바이스 음성 인식으로 생성된 텍스트 메모, 녹음 시각 타임스탬프를 수집합니다. 녹음과 텍스트 변환은 모두 기기 내에서 처리되며, Apple의 온디바이스 Speech Recognition을 사용합니다.</p>
@@ -143,6 +151,7 @@
         <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro 구독 결제·영수증 검증</td></tr>
         <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
         <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — 같은 Apple ID 기기 간 메모 동기화</td></tr>
+        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Find Local — 같은 Apple ID 기기 간 최근 검색어·저장한 장소 동기화</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — 사용자 자체 API 키로 메모 직접 전송 (사용자 명시적 선택 시)</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion 연동은 기본적으로 비활성화되어 있으며, 사용자가 설정에서 자신의 Notion API 키를 입력해야만 사용할 수 있습니다. 메모는 사용자가 Notion 행을 탭할 때만 전송됩니다. 자세한 내용은 <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion 개인정보 보호방침</a>을 참고하세요.</p>
@@ -153,10 +162,10 @@
     <div class="section" data-app="all">
       <h2>개인정보 국외 이전</h2>
       <p>일부 기능 제공 과정에서 이용자의 개인정보가 아래와 같이 국외로 이전될 수 있습니다. 이전에 동의하지 않는 경우 해당 기능을 사용하지 않거나 해당 앱을 이용하지 않으실 수 있습니다.</p>
-      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo">
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal">
         <p class="sub-label">Apple Inc. (미국)</p>
         <ul>
-          <li>이전 항목: 위치 정보(어제보다), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro), 음성 인식 관련 데이터(Talk Memo)</li>
+          <li>이전 항목: 위치 정보(어제보다), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Find Local), 음성 인식 관련 데이터(Talk Memo)</li>
           <li>이전 시점·방법: 해당 API 호출 시 네트워크(TLS) 전송</li>
           <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit), Speech Recognition 기능 제공</li>
           <li>보유·이용 기간: <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple 개인정보 보호방침</a>에 따름</li>
@@ -213,6 +222,7 @@
       <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
       <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에 보관되며, iCloud 동기화가 켜져 있는 경우 사용자의 iCloud 계정에도 저장됩니다. 앱을 삭제해도 iCloud 데이터는 남을 수 있으며, iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리에서 직접 삭제할 수 있습니다.</p>
       <p data-app="honestcamera">Honest Camera는 사용자 데이터를 자체 서버에 저장하지 않습니다. 촬영된 사진은 iOS 사진 보관함에 저장되며, 이는 Apple Photos 프레임워크가 관리합니다. 앱을 삭제하면 앱이 보유하던 모든 설정(예: 온보딩 완료 플래그)이 함께 제거됩니다.</p>
+      <p data-app="findlocal">Find Local은 사용자 데이터를 자체 서버에 저장하지 않습니다. 검색어·저장한 장소·환경 설정은 기기 내 UserDefaults 에 보관되며, 앱을 삭제하면 함께 제거됩니다. iCloud 동기화가 활성화된 상태에서는 최근 검색어와 저장한 장소가 사용자의 iCloud 계정에도 저장되며, 앱 삭제 후에도 iCloud 에 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리 에서 직접 삭제할 수 있습니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -300,6 +310,7 @@
       <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Find Local</button>
     </div>
 
     <div class="section" data-app="all">
@@ -332,6 +343,13 @@
         <p>The app uses only Camera and Photo Library Add permissions. Captured images are processed entirely on-device and saved to your Photos library; they are never transmitted to our servers or any external service. Permissions can be changed at any time in iOS Settings.</p>
         <p>An onboarding-completion flag is stored only in on-device UserDefaults and is never transmitted externally.</p>
       </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">Find Local</p>
+        <p>We do not collect, transmit, or store any personal information from Find Local users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
+        <p>Your search queries, saved places (query, country, city), and last-selected travel region and city are stored in on-device UserDefaults. Recent searches and saved places are additionally mirrored to your Apple iCloud account's Key-Value Store so they restore on other devices signed in to the same Apple ID, and on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p>The search alias dictionary (~2,800 place entries) is bundled with the app, so candidate generation requires no network access.</p>
+        <p>Map apps (Apple Maps · Google Maps · Naver Map · KakaoMap · Amap) are launched via the iOS system's URL schemes / deep links. When you tap a candidate to open a map app, your selected query is passed as a URL scheme parameter; what the destination map app does with it is governed by that app's own privacy policy. If the chosen map app is not installed, the iOS system opens its web equivalent in your default browser instead.</p>
+      </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
         <p>Audio recorded via the Apple Watch microphone, text memos generated by on-device speech recognition, and recording timestamps are collected. Recording and transcription are processed entirely on-device using Apple's on-device Speech Recognition.</p>
@@ -363,6 +381,7 @@
         <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro subscription payment &amp; receipt validation</td></tr>
         <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
         <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — memo sync across devices on the same Apple ID</td></tr>
+        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Find Local — recent searches & saved places sync across devices on the same Apple ID</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — direct memo transfer using your own API key (only on explicit user action)</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion integration is disabled by default and requires you to enter your own Notion API key in Settings. Memos are sent only when you explicitly tap the Notion row. See <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion's Privacy Policy</a> for details.</p>
@@ -373,10 +392,10 @@
     <div class="section" data-app="all">
       <h2>International data transfers</h2>
       <p>To provide certain features, your personal data may be transferred outside of your country as described below. If you do not wish to consent to a transfer, you may choose not to use the corresponding feature or app.</p>
-      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo">
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal">
         <p class="sub-label">Apple Inc. (United States)</p>
         <ul>
-          <li>Data: location (ThanYesterday), health data (RunNote), iCloud-synced data (Pinclip Pro), speech recognition data (Talk Memo)</li>
+          <li>Data: location (ThanYesterday), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Find Local), speech recognition data (Talk Memo)</li>
           <li>Timing &amp; method: transmitted over TLS when the relevant API is called</li>
           <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit), and Speech Recognition features</li>
           <li>Retention: governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple Privacy Policy</a></li>
@@ -433,6 +452,7 @@
       <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
       <p data-app="talkmemo">Talk Memo's recordings and text data are stored in App Group local storage; if iCloud sync is enabled, they are also stored in your iCloud account. iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
       <p data-app="honestcamera">Honest Camera does not store user data on any external server. Captured photos are saved to the iOS Photos library and managed by Apple's Photos framework. When you uninstall the app, all in-app preferences (such as the onboarding-completion flag) are removed.</p>
+      <p data-app="findlocal">Find Local does not store user data on any external server. Search queries, saved places, and preferences are kept in on-device UserDefaults and removed when you uninstall the app. When iCloud sync is enabled, recent searches and saved places are also stored in your iCloud account; iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
     </div>
 
     <div class="section" data-app="all">
