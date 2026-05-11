@@ -82,6 +82,7 @@
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
       <button data-filter="findlocal" onclick="filterApp('findlocal')">Find Local</button>
       <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
+      <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
     </div>
 
     <div class="section" data-app="all">
@@ -141,6 +142,17 @@
         <p class="sub-label">권한</p>
         <p>알림 권한은 사용자가 설정에서 "매일 알림"을 켤 때만 요청됩니다. 알림은 기기 내에서만 처리되며 외부 서버로 전송되지 않습니다.</p>
       </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">테츠로그 (鉄ログ)</p>
+        <p>당사는 테츠로그 이용자로부터 광고·분석 SDK 및 외부 추적 도구를 사용하지 않으며, 별도의 계정 시스템도 두지 않습니다.</p>
+        <p>이용자가 앱에서 생성하는 데이터(방문 기록, 방문 일시, 메모, 즐겨찾기 노선, 완乗 상태, 사용자 추가 촬영지의 좌표·제목·메모, 회사·지역 순서 등 UI 환경설정, 온보딩 완료 플래그)는 기기 내 SwiftData 저장소 및 UserDefaults 에 저장됩니다. 같은 Apple ID 로 로그인된 다른 기기로 자동 동기화하기 위해 방문 기록·즐겨찾기·메모 등 핵심 데이터는 Apple iCloud 계정 내 private CloudKit 데이터베이스에도 저장됩니다. 동기화 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud &gt; 鉄ログ 에서 끌 수 있습니다.</p>
+        <p class="sub-label">사진</p>
+        <p>역 방문 기록이나 촬영지에 첨부하는 사진은 <strong>기기 내 로컬 저장소(앱 Documents 디렉토리)에만 저장</strong>되며, CloudKit 데이터베이스나 당사 서버로 전송되지 않습니다. 사진은 저장 시점에 2048px 장변 기준으로 다운스케일되어 JPEG로 저장됩니다. 사진 추가 시 사진 보관함 접근 권한(PHPickerViewController)을 사용자 동의 하에 요청합니다.</p>
+        <p class="sub-label">위치 정보</p>
+        <p>지도 탭의 "내 위치" / "근처 역" 기능을 사용자가 직접 탭할 때만 CoreLocation 으로 현재 위치를 요청합니다. 위치 정보는 카메라 이동·주변 역 검색 목적으로만 일시적으로 사용되며 기기 외부에 저장되거나 전송되지 않습니다. 위치 권한은 iOS 설정에서 언제든지 변경할 수 있습니다.</p>
+        <p class="sub-label">결제</p>
+        <p>인앱 결제(테츠로그 Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
+      </div>
     </div>
 
     <div class="section" data-app="all">
@@ -163,6 +175,9 @@
         <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Find Local — 같은 Apple ID 기기 간 최근 검색어·저장한 장소 동기화</td></tr>
         <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
         <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette 2048 — Pro 구독 결제·영수증 검증</td></tr>
+        <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>테츠로그 — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
+        <tr data-app="tetsulog"><td>Apple Core Location</td><td>테츠로그 — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
+        <tr data-app="tetsulog"><td>Apple StoreKit</td><td>테츠로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — 사용자 자체 API 키로 메모 직접 전송 (사용자 명시적 선택 시)</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion 연동은 기본적으로 비활성화되어 있으며, 사용자가 설정에서 자신의 Notion API 키를 입력해야만 사용할 수 있습니다. 메모는 사용자가 Notion 행을 탭할 때만 전송됩니다. 자세한 내용은 <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion 개인정보 보호방침</a>을 참고하세요.</p>
@@ -173,12 +188,12 @@
     <div class="section" data-app="all">
       <h2>개인정보 국외 이전</h2>
       <p>일부 기능 제공 과정에서 이용자의 개인정보가 아래와 같이 국외로 이전될 수 있습니다. 이전에 동의하지 않는 경우 해당 기능을 사용하지 않거나 해당 앱을 이용하지 않으실 수 있습니다.</p>
-      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048">
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 tetsulog">
         <p class="sub-label">Apple Inc. (미국)</p>
         <ul>
-          <li>이전 항목: 위치 정보(어제보다), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Find Local·Palette 2048), 음성 인식 관련 데이터(Talk Memo)</li>
+          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Find Local·Palette 2048·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
           <li>이전 시점·방법: 해당 API 호출 시 네트워크(TLS) 전송</li>
-          <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit), Speech Recognition 기능 제공</li>
+          <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit·Key-Value Store), CoreLocation, Speech Recognition 기능 제공</li>
           <li>보유·이용 기간: <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple 개인정보 보호방침</a>에 따름</li>
           <li>거부 방법: iOS 설정에서 해당 권한을 해제하거나 iCloud 동기화를 비활성화</li>
         </ul>
@@ -323,6 +338,7 @@
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
       <button data-filter="findlocal" onclick="filterApp('findlocal')">Find Local</button>
       <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
+      <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
     </div>
 
     <div class="section" data-app="all">
@@ -382,6 +398,17 @@
         <p class="sub-label">Permissions</p>
         <p>Notification permission is requested only when you enable "Daily Reminder" in Settings. Notifications are delivered on-device only and are not transmitted to any external server.</p>
       </div>
+      <div class="app-block" data-app="tetsulog">
+        <p class="sub-label">Tetsulog (鉄ログ)</p>
+        <p>We do not use advertising or analytics SDKs or any external tracking tools, and there is no separate account system in Tetsulog.</p>
+        <p>Data you create in the app (visit records, visit timestamps, notes, favorite lines, completion state, coordinates / title / note for user-added photo spots, region/operator ordering and other UI preferences, onboarding flag) is stored on your device in SwiftData and UserDefaults. To automatically sync across devices signed in to the same Apple ID, core data (visit records, favorites, notes, etc.) is also stored in your Apple iCloud account's private CloudKit database. Synced data lives on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud &gt; 鉄ログ.</p>
+        <p class="sub-label">Photos</p>
+        <p>Photos you attach to visit records or photo spots are <strong>stored only in local device storage</strong> (the app's Documents directory) and are never transmitted to CloudKit or our servers. Photos are downscaled to a 2048px long edge and stored as JPEG when saved. The Photo Library picker (PHPickerViewController) is used with your consent when you add a photo.</p>
+        <p class="sub-label">Location</p>
+        <p>Core Location is queried only when you explicitly tap the "My location" / "Nearby stations" buttons in the Map tab. Location data is used transiently for camera focus and nearby-station search and is never stored on-device or transmitted off-device. Location permission can be revoked at any time in iOS Settings.</p>
+        <p class="sub-label">Payments</p>
+        <p>In-app purchases (Tetsulog Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
+      </div>
     </div>
 
     <div class="section" data-app="all">
@@ -404,6 +431,9 @@
         <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Find Local — recent searches & saved places sync across devices on the same Apple ID</td></tr>
         <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette 2048 — game progress sync across devices on the same Apple ID</td></tr>
         <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette 2048 — Pro subscription payment &amp; receipt validation</td></tr>
+        <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>Tetsulog — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
+        <tr data-app="tetsulog"><td>Apple Core Location</td><td>Tetsulog — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
+        <tr data-app="tetsulog"><td>Apple StoreKit</td><td>Tetsulog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — direct memo transfer using your own API key (only on explicit user action)</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion integration is disabled by default and requires you to enter your own Notion API key in Settings. Memos are sent only when you explicitly tap the Notion row. See <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion's Privacy Policy</a> for details.</p>
@@ -414,12 +444,12 @@
     <div class="section" data-app="all">
       <h2>International data transfers</h2>
       <p>To provide certain features, your personal data may be transferred outside of your country as described below. If you do not wish to consent to a transfer, you may choose not to use the corresponding feature or app.</p>
-      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048">
+      <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 tetsulog">
         <p class="sub-label">Apple Inc. (United States)</p>
         <ul>
-          <li>Data: location (ThanYesterday), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Find Local · Palette 2048), speech recognition data (Talk Memo)</li>
+          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Find Local · Palette 2048 · Tetsulog), speech recognition data (Talk Memo)</li>
           <li>Timing &amp; method: transmitted over TLS when the relevant API is called</li>
-          <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit), and Speech Recognition features</li>
+          <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit · Key-Value Store), Core Location, and Speech Recognition features</li>
           <li>Retention: governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple Privacy Policy</a></li>
           <li>Opt-out: revoke the relevant permission in iOS Settings, or disable iCloud sync</li>
         </ul>
