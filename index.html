@@ -92,6 +92,7 @@
       <div class="app-block" data-app="pinclip">
         <p class="sub-label">Pinclip</p>
         <p>사용자가 저장한 영상 URL, 제목, 썸네일, 메모, 태그, 폴더 정보를 기기 내에 저장합니다. Pinclip Pro 구독자의 경우 해당 데이터가 사용자의 Apple iCloud 계정 내 private CloudKit 데이터베이스에 동기화되며, 이는 Apple의 개인정보 보호방침을 따릅니다. URL 공유 시 가져오는 메타데이터(제목, 썸네일 URL)는 원본 플랫폼(YouTube, TikTok 등)의 공개 API로 직접 요청되며 당사의 서버를 경유하지 않습니다.</p>
+        <p>사용자가 폴더 메뉴의 "폴더 공유"를 명시적으로 실행하는 경우에 한해, 해당 폴더의 스냅샷(폴더명, 영상 URL·제목·썸네일 URL·플랫폼명, 선택적 닉네임)이 당사 공유 서버(Cloudflare Workers)로 업로드되어 공개 웹 페이지로 호스팅됩니다. <strong>메모와 태그는 업로드되지 않으며,</strong> 닉네임은 공유 시점마다 사용 여부를 선택할 수 있고, 사용자의 기기 내(UserDefaults)에 저장되어 자동 전송되지 않습니다.</p>
       </div>
       <div class="app-block" data-app="thanyesterday">
         <p class="sub-label">어제보다</p>
@@ -166,6 +167,7 @@
       <table>
         <tr data-app="thanyesterday"><td>Apple WeatherKit</td><td>어제보다 — 날씨 데이터</td></tr>
         <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro 구독자 데이터 동기화</td></tr>
+        <tr data-app="pinclip"><td>Cloudflare Workers + KV</td><td>Pinclip — 폴더 공유 링크 호스팅 및 OGP 카드 렌더링 (사용자가 명시적으로 공유 시)</td></tr>
         <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — 건강 데이터</td></tr>
         <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI 코칭 기능 (동의 후)</td></tr>
         <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — 공개 영상 메타데이터 (서버 측 호출)</td></tr>
@@ -240,6 +242,16 @@
           <li>거부 방법: 해당 없음 (개인 식별 정보가 전송되지 않음)</li>
         </ul>
       </div>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Cloudflare, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: 사용자가 명시적으로 공유한 폴더 스냅샷(폴더명, 영상 URL·제목·썸네일 URL·플랫폼명, 선택적 닉네임), 이용자 IP(엣지 네트워크 라우팅용)</li>
+          <li>이전 시점·방법: 사용자가 "폴더 공유"를 실행하여 공유 링크를 생성·열람할 때 TLS 전송</li>
+          <li>이전 목적: 폴더 공유 링크 호스팅, 공유 페이지의 OGP 카드 렌더링, 공유받은 사용자의 임포트용 JSON 제공</li>
+          <li>보유·이용 기간: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름. 공유 스냅샷은 별도 만료 없이 보관되며, 삭제 요청은 문의처로 가능합니다.</li>
+          <li>거부 방법: 폴더 공유 기능을 사용하지 않음 (앱의 다른 기능에는 영향 없음)</li>
+        </ul>
+      </div>
       <div class="app-block" data-app="sidefeed">
         <p class="sub-label">Cloudflare, Inc. (미국)</p>
         <ul>
@@ -256,6 +268,7 @@
       <h2>데이터 보관 및 삭제</h2>
       <p>기본적으로 기기 내 데이터는 앱을 삭제하면 함께 삭제됩니다. 다만 iCloud 동기화 데이터나 앱별로 명시된 서버 기반 기능·진단 정보는 각 앱별 조항의 보관 및 삭제 기준을 따릅니다.</p>
       <p data-app="pinclip">Pinclip Pro의 iCloud 동기화 데이터는 사용자의 iCloud 계정에 저장되며, 앱을 삭제해도 iCloud에는 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; "Pinclip" 항목에서 직접 삭제할 수 있습니다.</p>
+      <p data-app="pinclip">폴더 공유 링크는 사용자가 명시적으로 "폴더 공유"를 실행할 때만 생성되며, 한 번 생성된 스냅샷은 별도 만료 없이 Cloudflare KV에 보관됩니다. 닉네임은 사용자의 기기 내 UserDefaults에 저장되어 앱 삭제 시 함께 제거됩니다. 특정 공유 링크의 삭제를 원하시는 경우 본 방침 하단 문의처로 해당 URL과 함께 요청해 주십시오.</p>
       <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다.</p>
       <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
       <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에 보관되며, iCloud 동기화가 켜져 있는 경우 사용자의 iCloud 계정에도 저장됩니다. 앱을 삭제해도 iCloud 데이터는 남을 수 있으며, iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리에서 직접 삭제할 수 있습니다.</p>
@@ -360,6 +373,7 @@
       <div class="app-block" data-app="pinclip">
         <p class="sub-label">Pinclip</p>
         <p>Video URLs, titles, thumbnails, notes, tags, and folder information you save are stored on your device. For Pinclip Pro subscribers, this data is synced to your Apple iCloud account's private CloudKit database, subject to Apple's Privacy Policy. Metadata (titles, thumbnail URLs) fetched when sharing a URL is requested directly from the origin platform's public API (YouTube, TikTok, etc.) and never passes through our servers.</p>
+        <p>When you explicitly trigger "Share folder" from the folder menu — and only then — a snapshot of that folder (folder name, video URLs, titles, thumbnail URLs, platform names, and an optional nickname) is uploaded to our share server (Cloudflare Workers) and hosted as a public web page. <strong>Notes and tags are not uploaded.</strong> You can choose whether to include your nickname for each share. The nickname itself is stored on your device (UserDefaults) and is not transmitted automatically.</p>
       </div>
       <div class="app-block" data-app="thanyesterday">
         <p class="sub-label">ThanYesterday</p>
@@ -434,6 +448,7 @@
       <table>
         <tr data-app="thanyesterday"><td>Apple WeatherKit</td><td>ThanYesterday — weather data</td></tr>
         <tr data-app="pinclip"><td>Apple iCloud (CloudKit)</td><td>Pinclip — Pro subscriber data sync</td></tr>
+        <tr data-app="pinclip"><td>Cloudflare Workers + KV</td><td>Pinclip — public folder share link hosting and OGP card rendering (only when you explicitly share)</td></tr>
         <tr data-app="runnote"><td>Apple HealthKit</td><td>RunNote — health data</td></tr>
         <tr data-app="runnote"><td>Anthropic (Claude API)</td><td>RunNote — AI coaching (with consent)</td></tr>
         <tr data-app="sidefeed"><td>YouTube Data API v3</td><td>Sidefeed — public video metadata (server-side calls)</td></tr>
@@ -508,6 +523,16 @@
           <li>Opt-out: not applicable (no personally identifying information is transmitted)</li>
         </ul>
       </div>
+      <div class="app-block" data-app="pinclip">
+        <p class="sub-label">Cloudflare, Inc. (United States)</p>
+        <ul>
+          <li>Data: folder snapshots you explicitly share (folder name, video URLs, titles, thumbnail URLs, platform names, and an optional nickname), your IP address (for edge network routing)</li>
+          <li>Timing &amp; method: TLS transmission when you trigger "Share folder" to create a share link, and when share pages or import JSON are fetched</li>
+          <li>Purpose: hosting folder share links, rendering OGP cards on share pages, and serving JSON snapshots so recipients can import the folder into their own Pinclip library</li>
+          <li>Retention: governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a>. Shared snapshots are retained without an explicit expiry; deletion requests can be made via the contact email below.</li>
+          <li>Opt-out: do not use the folder share feature (other features of the app are unaffected)</li>
+        </ul>
+      </div>
       <div class="app-block" data-app="sidefeed">
         <p class="sub-label">Cloudflare, Inc. (United States)</p>
         <ul>
@@ -524,6 +549,7 @@
       <h2>Data retention &amp; deletion</h2>
       <p>By default, on-device data is deleted when you uninstall the app. iCloud-synced data and any server-based features or diagnostics described for a specific app follow the retention and deletion terms for that app.</p>
       <p data-app="pinclip">Pinclip Pro's iCloud-synced data is stored in your iCloud account and may remain in iCloud even after the app is deleted. You can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; "Pinclip".</p>
+      <p data-app="pinclip">Folder share links are created only when you explicitly trigger "Share folder", and the resulting snapshot is retained on Cloudflare KV without an explicit expiry. Your nickname is stored on-device in UserDefaults and is removed when you uninstall the app. To remove a specific share link, contact us via the email at the bottom of this policy with the URL.</p>
       <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted after 7 days.</p>
       <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
       <p data-app="talkmemo">Talk Memo's recordings and text data are stored in App Group local storage; if iCloud sync is enabled, they are also stored in your iCloud account. iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
