@@ -69,7 +69,7 @@
 
   <!-- 한국어 -->
   <div id="lang-ko" style="display:none;">
-    <p class="meta">시행일: 2026년 4월 21일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="meta">시행일: 2026년 5월 26일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
     <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
     <p class="tab-label">앱별로 보기</p>
     <div class="app-tabs">
@@ -80,7 +80,7 @@
       <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
-      <button data-filter="findlocal" onclick="filterApp('findlocal')">Find Local</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
       <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
     </div>
@@ -116,11 +116,12 @@
         <p>온보딩 완료 여부 플래그는 기기 내 UserDefaults 에만 저장되며, 외부로 전송되지 않습니다.</p>
       </div>
       <div class="app-block" data-app="findlocal">
-        <p class="sub-label">Find Local</p>
-        <p>당사는 Find Local 이용자로부터 어떠한 개인정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
-        <p>이용자가 입력한 검색어, 저장한 장소(쿼리·국가·도시), 마지막 선택한 여행 지역과 도시는 기기 내 UserDefaults 에 저장됩니다. 추가로 최근 검색어와 저장한 장소는 사용자의 Apple iCloud 계정 내 Key-Value Store 에도 자동으로 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
+        <p class="sub-label">Local Link / 로컬링크</p>
+        <p>당사는 Local Link 이용자로부터 이름, 이메일, 계정, 연락처, 정확한 위치와 같은 직접 식별 정보를 요구하지 않습니다. 광고 SDK, 외부 추적 SDK, 계정 시스템, 위치 권한은 사용하지 않습니다.</p>
+        <p>이용자가 입력한 검색어, 저장한 장소(쿼리·국가·도시), 마지막 선택한 여행 지역과 도시는 기기 내 UserDefaults 에 저장됩니다. 추가로 최근 검색어와 저장한 장소는 사용자의 Apple iCloud 계정 내 Key-Value Store 에도 자동으로 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
         <p>검색 별칭 사전(약 2,800개 장소명)은 앱 번들에 포함되어 있어 검색 후보 생성에 인터넷 통신이 필요하지 않습니다.</p>
-        <p>지도 앱(Apple Maps · Google Maps · Naver Map · KakaoMap · Amap) 실행은 iOS 시스템의 URL 스킴/딥링크를 통해 이루어집니다. 이용자가 후보를 선택해 지도 앱을 탭하면 검색어가 해당 지도 앱의 URL 스킴 파라미터로 전달되며, 그 이후 검색어 처리는 각 지도 앱의 개인정보 보호방침을 따릅니다. 지도 앱이 설치되어 있지 않을 경우 시스템 기본 브라우저로 웹 지도 페이지가 열립니다.</p>
+        <p>향후 앱 품질 개선, 오류 진단, 기능 사용 현황 파악을 위해 당사 서버 또는 당사가 이용하는 클라우드 인프라로 비식별 사용 지표와 진단 정보를 전송할 수 있습니다. 이 정보에는 앱 버전, OS 버전, 기기 종류, 언어/지역 설정, 대략적인 시간대, 선택한 국가·도시, 사용한 기능, 화면 전환, 지도 앱 열기 성공/실패 여부, 오류 코드, 임의로 생성된 설치 식별자가 포함될 수 있습니다. 원칙적으로 검색어 원문, 저장한 장소명, 정확한 위치, 연락처, 결제 정보는 사용 지표로 수집하지 않습니다. 서버는 보안과 남용 방지를 위해 IP 주소와 요청 시각을 일시적으로 처리할 수 있으며, IP 주소는 개별 이용자 식별 목적이나 광고 목적으로 사용하지 않습니다.</p>
+        <p>지도 앱 실행은 iOS 시스템의 URL 스킴/딥링크를 통해 이루어집니다. 이용자가 후보를 선택해 지도 앱을 탭하면 검색어가 해당 지도 앱의 URL 스킴 파라미터로 전달되며, 그 이후 검색어 처리는 각 지도 앱 제공자의 개인정보 보호방침을 따릅니다. 지도 앱이 설치되어 있지 않을 경우 시스템 기본 브라우저로 웹 지도 페이지가 열릴 수 있습니다.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -172,7 +173,8 @@
         <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro 구독 결제·영수증 검증</td></tr>
         <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — 온디바이스 음성 인식</td></tr>
         <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — 같은 Apple ID 기기 간 메모 동기화</td></tr>
-        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Find Local — 같은 Apple ID 기기 간 최근 검색어·저장한 장소 동기화</td></tr>
+        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Local Link — 같은 Apple ID 기기 간 최근 검색어·저장한 장소 동기화</td></tr>
+        <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — 비식별 사용 지표·오류 진단 정보 처리(향후 기능 개선용)</td></tr>
         <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
         <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette 2048 — Pro 구독 결제·영수증 검증</td></tr>
         <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>테츠로그 — 같은 Apple ID 기기 간 방문 기록·즐겨찾기·메모 동기화</td></tr>
@@ -191,11 +193,21 @@
       <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 tetsulog">
         <p class="sub-label">Apple Inc. (미국)</p>
         <ul>
-          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Find Local·Palette 2048·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
+          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Local Link·Palette 2048·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
           <li>이전 시점·방법: 해당 API 호출 시 네트워크(TLS) 전송</li>
           <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit·Key-Value Store), CoreLocation, Speech Recognition 기능 제공</li>
           <li>보유·이용 기간: <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple 개인정보 보호방침</a>에 따름</li>
           <li>거부 방법: iOS 설정에서 해당 권한을 해제하거나 iCloud 동기화를 비활성화</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">kkiruk studio server / cloud infrastructure (국가 미정)</p>
+        <ul>
+          <li>이전 항목: 비식별 사용 지표 및 진단 정보(앱 버전, OS 버전, 기기 종류, 언어/지역 설정, 대략적 시간대, 선택 국가·도시, 기능 이벤트, 오류 코드, 임의 설치 식별자 등)</li>
+          <li>이전 시점·방법: 향후 해당 기능이 활성화된 버전에서 앱 사용 중 TLS 전송</li>
+          <li>이전 목적: 앱 품질 개선, 오류 진단, 기능 사용 현황 분석, 보안 및 남용 방지</li>
+          <li>보유·이용 기간: 서비스 개선과 오류 분석에 필요한 기간 동안 보관 후 삭제 또는 집계 형태 보관</li>
+          <li>거부 방법: 향후 앱 내 설정 또는 iOS 설정에서 제공되는 범위에 따름. 해당 기능이 활성화되기 전에는 전송되지 않음.</li>
         </ul>
       </div>
       <div class="app-block" data-app="talkmemo">
@@ -242,13 +254,13 @@
 
     <div class="section" data-app="all">
       <h2>데이터 보관 및 삭제</h2>
-      <p>기본적으로 모든 데이터는 앱을 삭제하면 함께 삭제됩니다. 당사는 별도의 서버에 이용자 데이터를 보관하지 않습니다.</p>
+      <p>기본적으로 기기 내 데이터는 앱을 삭제하면 함께 삭제됩니다. 다만 iCloud 동기화 데이터나 앱별로 명시된 서버 기반 기능·진단 정보는 각 앱별 조항의 보관 및 삭제 기준을 따릅니다.</p>
       <p data-app="pinclip">Pinclip Pro의 iCloud 동기화 데이터는 사용자의 iCloud 계정에 저장되며, 앱을 삭제해도 iCloud에는 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; "Pinclip" 항목에서 직접 삭제할 수 있습니다.</p>
       <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다.</p>
       <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
       <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에 보관되며, iCloud 동기화가 켜져 있는 경우 사용자의 iCloud 계정에도 저장됩니다. 앱을 삭제해도 iCloud 데이터는 남을 수 있으며, iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리에서 직접 삭제할 수 있습니다.</p>
       <p data-app="honestcamera">Honest Camera는 사용자 데이터를 자체 서버에 저장하지 않습니다. 촬영된 사진은 iOS 사진 보관함에 저장되며, 이는 Apple Photos 프레임워크가 관리합니다. 앱을 삭제하면 앱이 보유하던 모든 설정(예: 온보딩 완료 플래그)이 함께 제거됩니다.</p>
-      <p data-app="findlocal">Find Local은 사용자 데이터를 자체 서버에 저장하지 않습니다. 검색어·저장한 장소·환경 설정은 기기 내 UserDefaults 에 보관되며, 앱을 삭제하면 함께 제거됩니다. iCloud 동기화가 활성화된 상태에서는 최근 검색어와 저장한 장소가 사용자의 iCloud 계정에도 저장되며, 앱 삭제 후에도 iCloud 에 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리 에서 직접 삭제할 수 있습니다.</p>
+      <p data-app="findlocal">Local Link의 검색어·저장한 장소·환경 설정은 기기 내 UserDefaults 에 보관되며, 앱을 삭제하면 함께 제거됩니다. iCloud 동기화가 활성화된 상태에서는 최근 검색어와 저장한 장소가 사용자의 iCloud 계정에도 저장되며, 앱 삭제 후에도 iCloud 에 남을 수 있습니다. 향후 서버 기반 사용 지표가 활성화되는 경우 비식별 지표와 진단 로그는 서비스 개선과 오류 분석에 필요한 기간 동안 보관한 뒤 삭제하거나 집계 형태로 보관합니다. 원문 검색어와 저장한 장소명은 사용 지표로 수집하지 않는 것을 원칙으로 합니다.</p>
     </div>
 
     <div class="section" data-app="all">
@@ -325,7 +337,7 @@
 
   <!-- English -->
   <div id="lang-en">
-    <p class="meta">Effective: April 21, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="meta">Effective: May 26, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
     <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
     <p class="tab-label">Filter by app</p>
     <div class="app-tabs">
@@ -336,7 +348,7 @@
       <button data-filter="sidefeed" onclick="filterApp('sidefeed')">Sidefeed</button>
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
-      <button data-filter="findlocal" onclick="filterApp('findlocal')">Find Local</button>
+      <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
       <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
     </div>
@@ -372,11 +384,12 @@
         <p>An onboarding-completion flag is stored only in on-device UserDefaults and is never transmitted externally.</p>
       </div>
       <div class="app-block" data-app="findlocal">
-        <p class="sub-label">Find Local</p>
-        <p>We do not collect, transmit, or store any personal information from Find Local users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
-        <p>Your search queries, saved places (query, country, city), and last-selected travel region and city are stored in on-device UserDefaults. Recent searches and saved places are additionally mirrored to your Apple iCloud account's Key-Value Store so they restore on other devices signed in to the same Apple ID, and on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
-        <p>The search alias dictionary (~2,800 place entries) is bundled with the app, so candidate generation requires no network access.</p>
-        <p>Map apps (Apple Maps · Google Maps · Naver Map · KakaoMap · Amap) are launched via the iOS system's URL schemes / deep links. When you tap a candidate to open a map app, your selected query is passed as a URL scheme parameter; what the destination map app does with it is governed by that app's own privacy policy. If the chosen map app is not installed, the iOS system opens its web equivalent in your default browser instead.</p>
+        <p class="sub-label">Local Link / 로컬링크</p>
+        <p>We do not require directly identifying information such as your name, email address, account, contacts, or precise location to use Local Link. The app does not use advertising SDKs, third-party tracking SDKs, account systems, or location permissions.</p>
+        <p>Your search queries, saved places (query, country, city), and last-selected travel region and city are stored in on-device UserDefaults. Recent searches and saved places are additionally mirrored to your Apple iCloud account's Key-Value Store so they restore on other devices signed in to the same Apple ID, and on new device setup. Data is stored on Apple's iCloud infrastructure. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
+        <p>The place alias dictionary (approximately 2,800 place names) is bundled with the app, so generating search candidates does not require internet communication.</p>
+        <p>In the future, to improve app quality, diagnose errors, and understand feature usage, we may transmit non-identifying usage metrics and diagnostic information to servers operated by us or by our cloud infrastructure provider. This may include app version, OS version, device type, language/region setting, approximate time zone, selected country/city, feature events, screen transitions, map launch success/failure, error codes, and a randomly generated installation identifier. By default, we do not collect raw search queries, saved place names, precise location, contacts, or payment information as usage metrics. Servers may temporarily process IP addresses and request timestamps for security and abuse prevention; IP addresses are not used to identify individual users or for advertising.</p>
+        <p>Launching map apps uses iOS URL schemes / deep links. When you select a candidate and tap a map app, the query is passed as a URL scheme parameter to that map app. Further handling of the query is governed by each map app provider's privacy policy. If the map app is not installed, a web map page may open in the system browser.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -428,7 +441,8 @@
         <tr data-app="sidefeed"><td>Apple StoreKit</td><td>Sidefeed — Pro subscription payment &amp; receipt validation</td></tr>
         <tr data-app="talkmemo"><td>Apple Speech Recognition</td><td>Talk Memo — on-device speech-to-text</td></tr>
         <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — memo sync across devices on the same Apple ID</td></tr>
-        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Find Local — recent searches & saved places sync across devices on the same Apple ID</td></tr>
+        <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Local Link — recent searches & saved places sync across devices on the same Apple ID</td></tr>
+        <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — non-identifying usage metrics and diagnostics for future app improvement</td></tr>
         <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette 2048 — game progress sync across devices on the same Apple ID</td></tr>
         <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette 2048 — Pro subscription payment &amp; receipt validation</td></tr>
         <tr data-app="tetsulog"><td>Apple iCloud (CloudKit)</td><td>Tetsulog — visit records, favorites, and notes sync across devices on the same Apple ID</td></tr>
@@ -447,11 +461,21 @@
       <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 tetsulog">
         <p class="sub-label">Apple Inc. (United States)</p>
         <ul>
-          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Find Local · Palette 2048 · Tetsulog), speech recognition data (Talk Memo)</li>
+          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Local Link · Palette 2048 · Tetsulog), speech recognition data (Talk Memo)</li>
           <li>Timing &amp; method: transmitted over TLS when the relevant API is called</li>
           <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit · Key-Value Store), Core Location, and Speech Recognition features</li>
           <li>Retention: governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple Privacy Policy</a></li>
           <li>Opt-out: revoke the relevant permission in iOS Settings, or disable iCloud sync</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="findlocal">
+        <p class="sub-label">kkiruk studio server / cloud infrastructure (location to be determined)</p>
+        <ul>
+          <li>Data: non-identifying usage metrics and diagnostics (app version, OS version, device type, language/region setting, approximate time zone, selected country/city, feature events, error codes, random installation identifier, etc.)</li>
+          <li>Timing &amp; method: TLS transmission during app use in a future version where the feature is enabled</li>
+          <li>Purpose: app quality improvement, error diagnosis, feature usage analysis, security, and abuse prevention</li>
+          <li>Retention: retained only as long as necessary for service improvement and error analysis, then deleted or kept in aggregated form</li>
+          <li>Opt-out: subject to controls provided in future app settings or iOS settings. No such transmission occurs before the feature is enabled.</li>
         </ul>
       </div>
       <div class="app-block" data-app="talkmemo">
@@ -498,13 +522,13 @@
 
     <div class="section" data-app="all">
       <h2>Data retention &amp; deletion</h2>
-      <p>By default, all data is deleted when you uninstall the app. We do not retain user data on any external server.</p>
+      <p>By default, on-device data is deleted when you uninstall the app. iCloud-synced data and any server-based features or diagnostics described for a specific app follow the retention and deletion terms for that app.</p>
       <p data-app="pinclip">Pinclip Pro's iCloud-synced data is stored in your iCloud account and may remain in iCloud even after the app is deleted. You can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; "Pinclip".</p>
       <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted after 7 days.</p>
       <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
       <p data-app="talkmemo">Talk Memo's recordings and text data are stored in App Group local storage; if iCloud sync is enabled, they are also stored in your iCloud account. iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
       <p data-app="honestcamera">Honest Camera does not store user data on any external server. Captured photos are saved to the iOS Photos library and managed by Apple's Photos framework. When you uninstall the app, all in-app preferences (such as the onboarding-completion flag) are removed.</p>
-      <p data-app="findlocal">Find Local does not store user data on any external server. Search queries, saved places, and preferences are kept in on-device UserDefaults and removed when you uninstall the app. When iCloud sync is enabled, recent searches and saved places are also stored in your iCloud account; iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
+      <p data-app="findlocal">Local Link search queries, saved places, and preferences are kept in on-device UserDefaults and removed when you uninstall the app. When iCloud sync is enabled, recent searches and saved places are also stored in your iCloud account; iCloud data may persist after uninstall. If server-based usage metrics are enabled in a future version, non-identifying metrics and diagnostic logs will be retained only as long as necessary for service improvement and error analysis, or kept in aggregated form. By default, raw search queries and saved place names are not collected as usage metrics.</p>
     </div>
 
     <div class="section" data-app="all">
