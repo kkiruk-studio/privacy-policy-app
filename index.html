@@ -69,7 +69,7 @@
 
   <!-- 한국어 -->
   <div id="lang-ko" style="display:none;">
-    <p class="meta">시행일: 2026년 6월 10일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
+    <p class="meta">시행일: 2026년 6월 12일 &middot; 개발사: kkiruk studio &middot; 문의: <span class="email" id="email-ko"></span></p>
     <p class="intro">kkiruk studio(이하 "당사")는 아래 앱들을 운영하며, 이용자의 개인정보를 소중히 다룹니다. 본 방침은 아래 앱 모두에 적용됩니다.</p>
     <p class="tab-label">앱별로 보기</p>
     <div class="app-tabs">
@@ -84,12 +84,15 @@
       <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
       <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
+      <button data-filter="catscute" onclick="filterApp('catscute')">고양이는 정말 귀여워</button>
+      <button data-filter="catspop" onclick="filterApp('catspop')">고양이는 정말 팡팡</button>
+      <button data-filter="james" onclick="filterApp('james')">James 시리즈</button>
     </div>
 
     <div class="section" data-app="all">
       <h2>수집하는 정보</h2>
       <p class="sub-label">공통</p>
-      <p>당사는 개인 식별 정보를 수집하지 않습니다. 대부분의 앱은 광고·분석 SDK를 사용하지 않으며, 사용하는 앱(Song 2048)은 아래 해당 앱 항목에 그 내용을 명시합니다.</p>
+      <p>당사는 개인 식별 정보를 수집하지 않습니다. 대부분의 앱은 광고·분석 SDK를 사용하지 않으며, 사용하는 앱·게임(Song 2048, 고양이는 정말 귀여워, 고양이는 정말 팡팡)은 아래 해당 항목에 그 내용을 명시합니다.</p>
       <div class="app-block" data-app="pinclip">
         <p class="sub-label">Pinclip</p>
         <p>사용자가 저장한 영상 URL, 제목, 썸네일, 메모, 태그, 폴더 정보를 기기 내에 저장합니다. Pinclip Pro 구독자의 경우 해당 데이터가 사용자의 Apple iCloud 계정 내 private CloudKit 데이터베이스에 동기화되며, 이는 Apple의 개인정보 보호방침을 따릅니다. URL 공유 시 가져오는 메타데이터(제목, 썸네일 URL)는 원본 플랫폼(YouTube, TikTok 등)의 공개 API로 직접 요청되며 당사의 서버를 경유하지 않습니다.</p>
@@ -170,6 +173,15 @@
         <p class="sub-label">결제</p>
         <p>인앱 결제(테츠로그 Pro 월간·연간 구독 및 평생 이용권) 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집·저장하지 않습니다.</p>
       </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">고양이는 정말 귀여워 · 고양이는 정말 팡팡</p>
+        <p>광고 제공 및 서비스 분석을 위해 SDK·플랫폼을 통해 광고 식별자(ADID, IDFA), 기기 정보(모델명, OS 버전, 언어, 국가, 앱 버전 등), 로그 데이터(앱 실행 시간, 충돌 보고서, 오류 로그, 사용 통계 등)가 자동 수집됩니다.</p>
+        <p>iCloud 또는 Google Play 게임 서비스에 로그인해 수동 클라우드 저장을 사용하는 경우, 이용자가 직접 생성한 클라우드 저장 데이터와 플랫폼 연동 식별자(Apple ID 또는 Google 계정)는 각 플랫폼이 직접 관리하며 당사가 직접 수집하지 않습니다. 닉네임, 게임 설정, 구매 이력 등은 해당하는 경우에만 수집됩니다.</p>
+      </div>
+      <div class="app-block" data-app="james">
+        <p class="sub-label">James Spring · James Summer</p>
+        <p>James Spring 및 James Summer는 개인정보를 수집·저장·전송하지 않습니다. 광고, 분석 도구, 제3자 SDK가 포함되어 있지 않으며 완전히 오프라인으로 동작합니다.</p>
+      </div>
     </div>
 
     <div class="section" data-app="all">
@@ -202,10 +214,15 @@
         <tr data-app="tetsulog"><td>Apple Core Location</td><td>테츠로그 — "내 위치"/"근처 역" 탭 시 현재 위치 일시 조회</td></tr>
         <tr data-app="tetsulog"><td>Apple StoreKit</td><td>테츠로그 — Pro 구독·평생 이용권 결제·영수증 검증</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — 사용자 자체 API 키로 메모 직접 전송 (사용자 명시적 선택 시)</td></tr>
+        <tr data-app="catscute catspop"><td>Google LLC (Firebase, AdMob)</td><td>고양이는 정말 귀여워·팡팡 — 광고 제공 및 분석 (광고 식별자, 기기 정보, 사용 로그)</td></tr>
+        <tr data-app="catscute catspop"><td>Unity Technologies</td><td>고양이는 정말 귀여워·팡팡 — 게임 분석 및 성능 추적</td></tr>
+        <tr data-app="catscute catspop"><td>ADX Corporation</td><td>고양이는 정말 귀여워·팡팡 — 광고 운영·성과 분석·광고 네트워크 미디에이션</td></tr>
+        <tr data-app="catscute catspop"><td>Apple / Google (플랫폼 계정)</td><td>고양이는 정말 귀여워·팡팡 — 클라우드 저장·복원, 랭킹</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion 연동은 기본적으로 비활성화되어 있으며, 사용자가 설정에서 자신의 Notion API 키를 입력해야만 사용할 수 있습니다. 메모는 사용자가 Notion 행을 탭할 때만 전송됩니다. 자세한 내용은 <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion 개인정보 보호방침</a>을 참고하세요.</p>
       <p class="note" data-app="runnote">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 7일 후 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
       <p class="note" data-app="sidefeed">Sidefeed는 Google 계정 인증을 사용하지 않으며, YouTube API는 서버 측에서만 호출되어 공개 영상 메타데이터만 조회합니다. YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
+      <p class="note" data-app="catscute catspop">ADX Corporation은 다수의 파트너 광고 네트워크를 운영합니다. 파트너 목록: <a href="https://assets.adxcorp.kr/privacy/partners" target="_blank">assets.adxcorp.kr/privacy/partners</a></p>
     </div>
 
     <div class="section" data-app="all">
@@ -279,6 +296,16 @@
           <li>이전 목적: Cloudflare Workers 엣지 캐싱 및 서비스 제공</li>
           <li>보유·이용 기간: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름</li>
           <li>거부 방법: 앱을 사용하지 않음</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">Google LLC · Unity Technologies (미국)</p>
+        <ul>
+          <li>이전 항목: 광고 식별자(ADID/IDFA), 기기 정보, 사용·게임플레이 로그</li>
+          <li>이전 시점·방법: 게임 실행 및 광고 표시 시 SDK를 통한 네트워크(TLS) 전송</li>
+          <li>이전 목적: 광고 제공·효과 측정(Firebase·AdMob), 게임 분석·성능 추적(Unity)</li>
+          <li>보유·이용 기간: 각 사 개인정보 보호방침에 따름</li>
+          <li>거부 방법: 기기 설정의 앱 추적 투명성(ATT) 거부 또는 광고 ID 재설정·제한</li>
         </ul>
       </div>
     </div>
@@ -369,7 +396,7 @@
 
   <!-- English -->
   <div id="lang-en">
-    <p class="meta">Effective: June 10, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
+    <p class="meta">Effective: June 12, 2026 &middot; Developer: kkiruk studio &middot; Contact: <span class="email" id="email-en"></span></p>
     <p class="intro">kkiruk studio ("we") operates the apps listed below and is committed to protecting your privacy. This policy applies to all apps listed.</p>
     <p class="tab-label">Filter by app</p>
     <div class="app-tabs">
@@ -384,12 +411,15 @@
       <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
       <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
+      <button data-filter="catscute" onclick="filterApp('catscute')">Cats are Cute</button>
+      <button data-filter="catspop" onclick="filterApp('catspop')">Pop Time!</button>
+      <button data-filter="james" onclick="filterApp('james')">James</button>
     </div>
 
     <div class="section" data-app="all">
       <h2>Information we collect</h2>
       <p class="sub-label">All apps</p>
-      <p>We do not collect personally identifiable information. Most of our apps use no advertising or analytics SDKs; apps that do (Song 2048) disclose this in their app section below.</p>
+      <p>We do not collect personally identifiable information. Most of our apps use no advertising or analytics SDKs; apps that do (Song 2048; the games Cats are Cute and Cats are Cute: Pop Time!) disclose this in their app section below.</p>
       <div class="app-block" data-app="pinclip">
         <p class="sub-label">Pinclip</p>
         <p>Video URLs, titles, thumbnails, notes, tags, and folder information you save are stored on your device. For Pinclip Pro subscribers, this data is synced to your Apple iCloud account's private CloudKit database, subject to Apple's Privacy Policy. Metadata (titles, thumbnail URLs) fetched when sharing a URL is requested directly from the origin platform's public API (YouTube, TikTok, etc.) and never passes through our servers.</p>
@@ -470,6 +500,15 @@
         <p class="sub-label">Payments</p>
         <p>In-app purchases (Tetsulog Pro monthly / yearly subscriptions and the lifetime unlock) and receipt validation are handled entirely by Apple StoreKit; we do not collect or store any payment information.</p>
       </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">Cats are Cute · Cats are Cute: Pop Time!</p>
+        <p>To serve ads and analyze the service, the following is collected automatically via SDKs and platforms: advertising identifiers (ADID, IDFA), device information (model, OS version, language, country, app version, etc.), and log data (app launch times, crash reports, error logs, usage statistics, etc.).</p>
+        <p>If you sign in to iCloud or Google Play Games Services and use manual cloud saves, the cloud save data you create and the platform account identifier (Apple ID or Google account) are managed directly by the platform and are not collected by us. Nickname, game settings, and purchase history are collected only where applicable.</p>
+      </div>
+      <div class="app-block" data-app="james">
+        <p class="sub-label">James Spring · James Summer</p>
+        <p>James Spring and James Summer do not collect, store, or transmit any personal information. They contain no ads, no analytics tools, and no third-party SDKs, and operate fully offline.</p>
+      </div>
     </div>
 
     <div class="section" data-app="all">
@@ -502,10 +541,15 @@
         <tr data-app="tetsulog"><td>Apple Core Location</td><td>Tetsulog — transient location lookup when you tap "My location" / "Nearby stations"</td></tr>
         <tr data-app="tetsulog"><td>Apple StoreKit</td><td>Tetsulog — Pro subscription / lifetime purchase &amp; receipt validation</td></tr>
         <tr data-app="talkmemo"><td>Notion API</td><td>Talk Memo — direct memo transfer using your own API key (only on explicit user action)</td></tr>
+        <tr data-app="catscute catspop"><td>Google LLC (Firebase, AdMob)</td><td>Cats are Cute / Pop Time! — ad serving and analytics (ad identifiers, device info, usage logs)</td></tr>
+        <tr data-app="catscute catspop"><td>Unity Technologies</td><td>Cats are Cute / Pop Time! — game analytics and performance tracking</td></tr>
+        <tr data-app="catscute catspop"><td>ADX Corporation</td><td>Cats are Cute / Pop Time! — ad operation, performance analysis, ad network mediation</td></tr>
+        <tr data-app="catscute catspop"><td>Apple / Google (platform accounts)</td><td>Cats are Cute / Pop Time! — cloud save/restore, rankings</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion integration is disabled by default and requires you to enter your own Notion API key in Settings. Memos are sent only when you explicitly tap the Notion row. See <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion's Privacy Policy</a> for details.</p>
       <p class="note" data-app="runnote">Data sent via Anthropic API is not used for model training and is automatically deleted after 7 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
       <p class="note" data-app="sidefeed">Sidefeed does not use Google account authentication. YouTube API calls are made server-side only and fetch public video metadata. Use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</p>
+      <p class="note" data-app="catscute catspop">ADX Corporation operates multiple partner ad networks. Partner list: <a href="https://assets.adxcorp.kr/privacy/partners" target="_blank">assets.adxcorp.kr/privacy/partners</a></p>
     </div>
 
     <div class="section" data-app="all">
@@ -579,6 +623,16 @@
           <li>Purpose: Cloudflare Workers edge caching and service delivery</li>
           <li>Retention: governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a></li>
           <li>Opt-out: do not use the app</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="catscute catspop">
+        <p class="sub-label">Google LLC · Unity Technologies (USA)</p>
+        <ul>
+          <li>Data transferred: advertising identifiers (ADID/IDFA), device information, usage and gameplay logs</li>
+          <li>When/how: network (TLS) transmission via SDKs while playing and when ads are displayed</li>
+          <li>Purpose: ad serving and measurement (Firebase, AdMob), game analytics and performance tracking (Unity)</li>
+          <li>Retention: per each company's privacy policy</li>
+          <li>Opt-out: decline App Tracking Transparency (ATT) or reset/limit your advertising ID in device settings</li>
         </ul>
       </div>
     </div>
