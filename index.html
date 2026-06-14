@@ -127,6 +127,8 @@
         <p>검색 별칭 사전(약 2,800개 장소명)은 앱 번들에 포함되어 있어 검색 후보 생성에 인터넷 통신이 필요하지 않습니다.</p>
         <p>향후 앱 품질 개선, 오류 진단, 기능 사용 현황 파악을 위해 당사 서버 또는 당사가 이용하는 클라우드 인프라로 비식별 사용 지표와 진단 정보를 전송할 수 있습니다. 이 정보에는 앱 버전, OS 버전, 기기 종류, 언어/지역 설정, 대략적인 시간대, 선택한 국가·도시, 사용한 기능, 화면 전환, 지도 앱 열기 성공/실패 여부, 오류 코드, 임의로 생성된 설치 식별자가 포함될 수 있습니다. 원칙적으로 검색어 원문, 저장한 장소명, 정확한 위치, 연락처, 결제 정보는 사용 지표로 수집하지 않습니다. 서버는 보안과 남용 방지를 위해 IP 주소와 요청 시각을 일시적으로 처리할 수 있으며, IP 주소는 개별 이용자 식별 목적이나 광고 목적으로 사용하지 않습니다.</p>
         <p>지도 앱 실행은 iOS 시스템의 URL 스킴/딥링크를 통해 이루어집니다. 이용자가 후보를 선택해 지도 앱을 탭하면 검색어가 해당 지도 앱의 URL 스킴 파라미터로 전달되며, 그 이후 검색어 처리는 각 지도 앱 제공자의 개인정보 보호방침을 따릅니다. 지도 앱이 설치되어 있지 않을 경우 시스템 기본 브라우저로 웹 지도 페이지가 열릴 수 있습니다.</p>
+        <p class="sub-label">장소 요청 전송 (선택적, 사용자 명시적 행동)</p>
+        <p>이용자가 &lsquo;장소 요청&rsquo; 양식을 작성해 전송 버튼을 누를 때만, 이용자가 입력한 다음 정보가 당사가 운영하는 Google Apps Script 웹앱 엔드포인트(script.google.com)로 전송됩니다: 현재 검색어, 이용자가 입력한 요청 장소명/설명, 선택한 국가 및 도시, 이용자가 입력한 메모(선택), 앱 버전. 스팸 방지를 위한 고정 제출 토큰(개인정보가 아닌 앱 내 상수)도 함께 전송됩니다. 이 양식은 기기 식별자, 위치 정보, 계정 정보를 전송하지 않으며, 전송은 오직 이용자의 명시적 행동 후에만 이루어집니다. 전송된 정보는 검색 별칭 사전 개선 및 요청 처리 목적으로만 사용됩니다.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
@@ -454,6 +456,8 @@
         <p>The place alias dictionary (approximately 2,800 place names) is bundled with the app, so generating search candidates does not require internet communication.</p>
         <p>In the future, to improve app quality, diagnose errors, and understand feature usage, we may transmit non-identifying usage metrics and diagnostic information to servers operated by us or by our cloud infrastructure provider. This may include app version, OS version, device type, language/region setting, approximate time zone, selected country/city, feature events, screen transitions, map launch success/failure, error codes, and a randomly generated installation identifier. By default, we do not collect raw search queries, saved place names, precise location, contacts, or payment information as usage metrics. Servers may temporarily process IP addresses and request timestamps for security and abuse prevention; IP addresses are not used to identify individual users or for advertising.</p>
         <p>Launching map apps uses iOS URL schemes / deep links. When you select a candidate and tap a map app, the query is passed as a URL scheme parameter to that map app. Further handling of the query is governed by each map app provider's privacy policy. If the map app is not installed, a web map page may open in the system browser.</p>
+        <p class="sub-label">Place Request Submission (optional, explicit user action)</p>
+        <p>Only when you fill in the &ldquo;place request&rdquo; form and tap the submit button, the following information you entered is sent to a Google Apps Script web app endpoint (script.google.com) operated by us: your current search query, the requested place name/description you typed, the selected country and city, an optional memo you typed, and the app version. A fixed submission token (an in-app constant for spam prevention, not personal data) is sent along with it. This form does not transmit device identifiers, location data, or account information, and submission occurs only after your explicit action. The submitted information is used solely to improve the place alias dictionary and to handle your request.</p>
       </div>
       <div class="app-block" data-app="talkmemo">
         <p class="sub-label">Talk Memo</p>
