@@ -81,7 +81,7 @@
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
       <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
-      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
+      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette</button>
       <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">테츠로그</button>
       <button data-filter="catscute" onclick="filterApp('catscute')">고양이는 정말 귀여워</button>
@@ -145,8 +145,8 @@
         <p>마이크 권한(Apple Watch 및 iPhone), 음성 인식 권한, 알림 권한(새 메모 도착 알림용)을 사용자 동의 하에 사용합니다.</p>
       </div>
       <div class="app-block" data-app="palette2048">
-        <p class="sub-label">Palette 2048</p>
-        <p>당사는 Palette 2048 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
+        <p class="sub-label">Palette</p>
+        <p>당사는 Palette 이용자로부터 어떠한 개인 식별 정보도 수집·전송·저장하지 않습니다. 광고 SDK, 분석 SDK, 외부 서비스 연동, 계정 시스템, 위치 권한이 모두 부재합니다.</p>
         <p>게임 진행 상황(현재 보드 상태, 베스트 점수, 푼 미스터리 목록, 연속 플레이 일수, 보드 크기 설정, 첫 플레이 일자, 온보딩/약관 동의 플래그)은 기기 내 UserDefaults 에 저장됩니다. 추가로 같은 데이터는 사용자의 Apple iCloud 계정 내 Key-Value Store 에 저장되어 같은 Apple ID 로 로그인된 다른 기기 또는 신규 기기 설정 시 자동 동기화·복원됩니다. 데이터는 Apple iCloud 인프라에 저장되며 당사 서버를 거치지 않습니다. iCloud 동기화는 iOS 설정 &gt; Apple ID &gt; iCloud 항목에서 끌 수 있습니다.</p>
         <p>인앱 구독(Palette Pro) 결제 및 영수증 검증은 Apple StoreKit 을 통해 처리되며, 당사는 결제 수단 정보를 수집하지 않습니다.</p>
         <p class="sub-label">권한</p>
@@ -224,8 +224,8 @@
         <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — 같은 Apple ID 기기 간 메모 동기화</td></tr>
         <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Local Link — 같은 Apple ID 기기 간 최근 검색어·저장한 장소 동기화</td></tr>
         <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — 비식별 사용 지표·오류 진단 정보 처리(향후 기능 개선용)</td></tr>
-        <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
-        <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette 2048 — Pro 구독 결제·영수증 검증</td></tr>
+        <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
+        <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette — Pro 구독 결제·영수증 검증</td></tr>
         <tr data-app="salarycharm"><td>Apple StoreKit</td><td>직장인 부적 — Pro 구독 결제·영수증 검증</td></tr>
         <tr data-app="song2048"><td>Apple iCloud (Key-Value Store)</td><td>Song 2048 — 같은 Apple ID 기기 간 게임 진행 상황 동기화</td></tr>
         <tr data-app="song2048"><td>Apple StoreKit</td><td>Song 2048 — Pro 일회성 구매 결제·영수증 검증</td></tr>
@@ -252,7 +252,7 @@
       <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 tetsulog">
         <p class="sub-label">Apple Inc. (미국)</p>
         <ul>
-          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Local Link·Palette 2048·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
+          <li>이전 항목: 위치 정보(어제보다·테츠로그), 건강 데이터(RunNote), iCloud 저장 데이터(Pinclip Pro·Talk Memo·Local Link·Palette·테츠로그), 음성 인식 관련 데이터(Talk Memo)</li>
           <li>이전 시점·방법: 해당 API 호출 시 네트워크(TLS) 전송</li>
           <li>이전 목적: WeatherKit, HealthKit, iCloud(CloudKit·Key-Value Store), CoreLocation, Speech Recognition 기능 제공</li>
           <li>보유·이용 기간: <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple 개인정보 보호방침</a>에 따름</li>
@@ -429,7 +429,7 @@
       <button data-filter="talkmemo" onclick="filterApp('talkmemo')">Talk Memo</button>
       <button data-filter="honestcamera" onclick="filterApp('honestcamera')">Honest Camera</button>
       <button data-filter="findlocal" onclick="filterApp('findlocal')">Local Link</button>
-      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette 2048</button>
+      <button data-filter="palette2048" onclick="filterApp('palette2048')">Palette</button>
       <button data-filter="song2048" onclick="filterApp('song2048')">Song 2048</button>
       <button data-filter="tetsulog" onclick="filterApp('tetsulog')">Tetsulog</button>
       <button data-filter="catscute" onclick="filterApp('catscute')">Cats are Cute</button>
@@ -493,8 +493,8 @@
         <p>Microphone (Apple Watch and iPhone), Speech Recognition, and Notification (for new memo arrival alerts) permissions are used with your explicit consent.</p>
       </div>
       <div class="app-block" data-app="palette2048">
-        <p class="sub-label">Palette 2048</p>
-        <p>We do not collect, transmit, or store any personally identifiable information from Palette 2048 users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
+        <p class="sub-label">Palette</p>
+        <p>We do not collect, transmit, or store any personally identifiable information from Palette users. The app contains no advertising SDKs, no analytics SDKs, no third-party integrations, no account system, and does not request location permissions.</p>
         <p>Game progress (current board state, best scores, solved-mystery list, daily-play streak, board-size preference, first-play date, onboarding/terms-acceptance flags) is stored on your device in UserDefaults. The same data is also mirrored to your Apple iCloud account's Key-Value Store so it syncs across devices signed in to the same Apple ID and restores on new device setup. Data is stored on Apple's iCloud infrastructure and never passes through our servers. You can disable iCloud sync from iOS Settings &gt; Apple ID &gt; iCloud.</p>
         <p>In-app subscription (Palette Pro) purchases and receipt validation are handled entirely by Apple StoreKit; we do not collect any payment information.</p>
         <p class="sub-label">Permissions</p>
@@ -572,8 +572,8 @@
         <tr data-app="talkmemo"><td>Apple iCloud (Key-Value Store)</td><td>Talk Memo — memo sync across devices on the same Apple ID</td></tr>
         <tr data-app="findlocal"><td>Apple iCloud (Key-Value Store)</td><td>Local Link — recent searches & saved places sync across devices on the same Apple ID</td></tr>
         <tr data-app="findlocal"><td>kkiruk studio server / cloud infrastructure</td><td>Local Link — non-identifying usage metrics and diagnostics for future app improvement</td></tr>
-        <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette 2048 — game progress sync across devices on the same Apple ID</td></tr>
-        <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette 2048 — Pro subscription payment &amp; receipt validation</td></tr>
+        <tr data-app="palette2048"><td>Apple iCloud (Key-Value Store)</td><td>Palette — game progress sync across devices on the same Apple ID</td></tr>
+        <tr data-app="palette2048"><td>Apple StoreKit</td><td>Palette — Pro subscription payment &amp; receipt validation</td></tr>
         <tr data-app="salarycharm"><td>Apple StoreKit</td><td>Salary Charm — Pro subscription payment &amp; receipt validation</td></tr>
         <tr data-app="song2048"><td>Apple iCloud (Key-Value Store)</td><td>Song 2048 — game progress sync across devices on the same Apple ID</td></tr>
         <tr data-app="song2048"><td>Apple StoreKit</td><td>Song 2048 — Pro one-time purchase &amp; receipt validation</td></tr>
@@ -600,7 +600,7 @@
       <div class="app-block" data-app="pinclip thanyesterday runnote talkmemo findlocal palette2048 tetsulog">
         <p class="sub-label">Apple Inc. (United States)</p>
         <ul>
-          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Local Link · Palette 2048 · Tetsulog), speech recognition data (Talk Memo)</li>
+          <li>Data: location (ThanYesterday, Tetsulog), health data (RunNote), iCloud-synced data (Pinclip Pro · Talk Memo · Local Link · Palette · Tetsulog), speech recognition data (Talk Memo)</li>
           <li>Timing &amp; method: transmitted over TLS when the relevant API is called</li>
           <li>Purpose: providing WeatherKit, HealthKit, iCloud (CloudKit · Key-Value Store), Core Location, and Speech Recognition features</li>
           <li>Retention: governed by the <a href="https://www.apple.com/legal/privacy/" target="_blank" class="email">Apple Privacy Policy</a></li>
