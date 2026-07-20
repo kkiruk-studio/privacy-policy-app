@@ -108,7 +108,7 @@
       </div>
       <div class="app-block" data-app="runnote">
         <p class="sub-label">RunNote</p>
-        <div class="warning-box">AI 코칭 기능 사용 시, 러닝 데이터(거리, 페이스, 심박수 등)가 Anthropic(Claude API)의 서버로 전송됩니다. 이 기능을 사용하기 전에 별도의 동의를 요청합니다.</div>
+        <div class="warning-box">AI 코칭 기능 사용 시, 러닝 데이터(거리, 시간, 페이스, 심박수 등)와 사용자가 입력한 프로필(나이·체중·키·심박 정보·목표), 건강 특이사항, 통증 기록, 러닝 노트·메모가 Anthropic(Claude API)의 서버로 전송됩니다. 이 기능을 사용하기 전에 별도의 동의를 요청합니다.</div>
         <p>러닝 기록(거리, 시간, 페이스, 경로 등) 및 건강 데이터(HealthKit — 심박수, 칼로리 등)를 수집합니다. AI 코칭 기능 제공 목적으로만 사용되며, 광고·마케팅·데이터 판매에 사용되지 않습니다. AI 코칭 기능을 사용하지 않는 경우 데이터는 기기 내에만 저장됩니다.</p>
       </div>
       <div class="app-block" data-app="sidefeed">
@@ -266,7 +266,7 @@
         <tr data-app="catscute catspop"><td>Apple / Google (플랫폼 계정)</td><td>고양이는 정말 귀여워·팡팡 — 클라우드 저장·복원, 랭킹</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion 연동은 기본적으로 비활성화되어 있으며, 사용자가 설정에서 자신의 Notion API 키를 입력해야만 사용할 수 있습니다. 메모는 사용자가 Notion 행을 탭할 때만 전송됩니다. 자세한 내용은 <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion 개인정보 보호방침</a>을 참고하세요.</p>
-      <p class="note" data-app="runnote">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 7일 후 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
+      <p class="note" data-app="runnote">Anthropic API를 통해 전송된 데이터는 모델 학습에 사용되지 않으며 30일 이내 자동 삭제됩니다. 자세한 내용은 <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic 개인정보 보호방침</a>을 참고하세요.</p>
       <p class="note" data-app="sidefeed">Sidefeed는 Google 계정 인증을 사용하지 않으며, YouTube API는 서버 측에서만 호출되어 공개 영상 메타데이터만 조회합니다. YouTube API 사용은 <a href="https://www.youtube.com/t/terms" target="_blank">YouTube 서비스 약관</a> 및 <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보 보호방침</a>의 적용을 받습니다.</p>
       <p class="note" data-app="catscute catspop">ADX Corporation은 다수의 파트너 광고 네트워크를 운영합니다. 파트너 목록: <a href="https://assets.adxcorp.kr/privacy/partners" target="_blank">assets.adxcorp.kr/privacy/partners</a></p>
     </div>
@@ -307,10 +307,21 @@
       <div class="app-block" data-app="runnote">
         <p class="sub-label">Anthropic, PBC (미국)</p>
         <ul>
-          <li>이전 항목: 러닝 데이터(거리, 시간, 페이스, 심박수, 경로 등)</li>
-          <li>이전 시점·방법: RunNote의 AI 코칭 기능 사용 시 Claude API 호출</li>
+          <li>이전 항목: 러닝 데이터(거리, 시간, 페이스, 심박수·심박 구간, 케이던스, 고도, 구간 기록 등), 사용자 입력 프로필(나이, 체중, 키, 최대·안정시 심박수, 운동 수준, 목표), 건강 특이사항(부상·질환·복약 등 사용자가 입력한 내용), 통증 기록(부위·강도), 러닝 노트·메모 원문, AI가 축적한 코치 노트, 신발 정보</li>
+          <li>이전 시점·방법: RunNote의 AI 코칭 기능 사용 시(사전 동의 후) Claude API 호출, TLS 전송</li>
           <li>이전 목적: AI 코칭 응답 생성</li>
-          <li>보유·이용 기간: API 처리 후 7일 이내 자동 삭제</li>
+          <li>이전받는 자 연락처: privacy@anthropic.com</li>
+          <li>보유·이용 기간: <a href="https://www.anthropic.com/privacy" target="_blank" class="email">Anthropic 개인정보 보호방침</a>에 따라 API 처리 후 30일 이내 자동 삭제 (모델 학습에는 사용되지 않음)</li>
+          <li>거부 방법: AI 코칭 기능을 사용하지 않음 (기록·노트 등 다른 기능에는 영향 없음)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">Cloudflare, Inc. (미국)</p>
+        <ul>
+          <li>이전 항목: AI 코칭 요청 내용(위 Anthropic 이전 항목과 동일), 이용자 IP(네트워크 라우팅용)</li>
+          <li>이전 시점·방법: AI 코칭 기능 사용 시 당사 프록시 서버(Cloudflare Workers, 미국 리전)를 경유하여 TLS 전송</li>
+          <li>이전 목적: API 키 보호를 위한 중계(프록시) — 요청 내용을 저장하지 않고 Anthropic으로 전달</li>
+          <li>보유·이용 기간: 프록시는 요청 내용을 저장하지 않으며, 네트워크 처리 로그는 <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare 개인정보 보호방침</a>에 따름</li>
           <li>거부 방법: AI 코칭 기능을 사용하지 않음</li>
         </ul>
       </div>
@@ -361,7 +372,7 @@
       <p>기본적으로 기기 내 데이터는 앱을 삭제하면 함께 삭제됩니다. 다만 iCloud 동기화 데이터나 앱별로 명시된 서버 기반 기능·진단 정보는 각 앱별 조항의 보관 및 삭제 기준을 따릅니다.</p>
       <p data-app="pinclip">Pinclip Pro의 iCloud 동기화 데이터는 사용자의 iCloud 계정에 저장되며, 앱을 삭제해도 iCloud에는 남을 수 있습니다. iOS 설정 &gt; Apple ID &gt; iCloud &gt; "Pinclip" 항목에서 직접 삭제할 수 있습니다.</p>
       <p data-app="pinclip">폴더 공유 링크는 사용자가 명시적으로 "폴더 공유"를 실행할 때만 생성되며, 한 번 생성된 스냅샷은 별도 만료 없이 Cloudflare KV에 보관됩니다. 닉네임은 사용자의 기기 내 UserDefaults에 저장되어 앱 삭제 시 함께 제거됩니다. 특정 공유 링크의 삭제를 원하시는 경우 본 방침 하단 문의처로 해당 URL과 함께 요청해 주십시오.</p>
-      <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 7일 후 자동 삭제됩니다.</p>
+      <p data-app="runnote">RunNote의 AI 코칭 기능으로 Anthropic에 전송된 데이터는 30일 이내 자동 삭제됩니다.</p>
       <p data-app="sidefeed">Sidefeed는 이용자 계정·인증 정보를 저장하지 않습니다. 기기 내 저장된 관심 카테고리·시청 기록·국가 설정은 앱 삭제 시 함께 제거됩니다. 서버 캐시에는 이용자 식별 정보가 포함되지 않습니다.</p>
       <p data-app="talkmemo">Talk Memo의 녹음 및 텍스트 데이터는 App Group 로컬 저장소에 보관되며, iCloud 동기화가 켜져 있는 경우 사용자의 iCloud 계정에도 저장됩니다. 앱을 삭제해도 iCloud 데이터는 남을 수 있으며, iOS 설정 &gt; Apple ID &gt; iCloud &gt; 저장공간 관리에서 직접 삭제할 수 있습니다.</p>
       <p data-app="honestcamera">Honest Camera는 사용자 데이터를 자체 서버에 저장하지 않습니다. 촬영된 사진은 iOS 사진 보관함에 저장되며, 이는 Apple Photos 프레임워크가 관리합니다. 앱을 삭제하면 앱이 보유하던 모든 설정(예: 온보딩 완료 플래그)이 함께 제거됩니다.</p>
@@ -397,7 +408,7 @@
         <tr><td>전송 제한권</td><td>특정 데이터 처리 중단 요청</td></tr>
         <tr><td>이의 제기권</td><td>데이터 처리에 대한 이의 제기</td></tr>
       </table>
-      <p class="note" data-app="runnote">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 서비스 제공을 위한 적법한 이익(Legitimate Interest)에 근거합니다.</p>
+      <p class="note" data-app="runnote">RunNote의 AI 코칭 기능을 위한 Anthropic 데이터 전송은 이용자의 명시적 동의(Explicit Consent, GDPR 제6조 제1항 (a)호 및 제9조 제2항 (a)호)에 근거하며, 동의는 앱 설정에서 언제든지 철회할 수 있습니다.</p>
       <p class="note" data-app="sidefeed">Sidefeed는 이용자 개인정보를 수집하지 않으므로, GDPR 상 처리 근거가 필요한 개인정보 처리 행위는 발생하지 않습니다.</p>
       <p class="note">권리 행사 문의: <span class="email" id="email-ko-gdpr"></span></p>
       <p class="note">EU/EEA 이용자는 거주 회원국의 개인정보 감독기관(Supervisory Authority)에 이의를 제기할 권리가 있습니다.</p>
@@ -481,7 +492,7 @@
       </div>
       <div class="app-block" data-app="runnote">
         <p class="sub-label">RunNote</p>
-        <div class="warning-box">When using AI coaching features, your running data (distance, pace, heart rate, etc.) is sent to Anthropic's servers (Claude API). Your explicit consent will be requested before this feature is activated.</div>
+        <div class="warning-box">When using AI coaching features, your running data (distance, duration, pace, heart rate, etc.) along with your user-entered profile (age, weight, height, heart-rate info, goals), health notes, pain records, and running notes/memos are sent to Anthropic's servers (Claude API). Your explicit consent will be requested before this feature is activated.</div>
         <p>Running data (distance, time, pace, route) and health data via HealthKit (heart rate, calories, etc.) may be collected. This data is used solely to provide AI coaching and is never used for advertising, marketing, or data sales. If you do not use AI coaching, all data remains on-device only.</p>
       </div>
       <div class="app-block" data-app="sidefeed">
@@ -639,7 +650,7 @@
         <tr data-app="catscute catspop"><td>Apple / Google (platform accounts)</td><td>Cats are Cute / Pop Time! — cloud save/restore, rankings</td></tr>
       </table>
       <p class="note" data-app="talkmemo">Notion integration is disabled by default and requires you to enter your own Notion API key in Settings. Memos are sent only when you explicitly tap the Notion row. See <a href="https://www.notion.so/notion/Privacy-Policy" target="_blank">Notion's Privacy Policy</a> for details.</p>
-      <p class="note" data-app="runnote">Data sent via Anthropic API is not used for model training and is automatically deleted after 7 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
+      <p class="note" data-app="runnote">Data sent via Anthropic API is not used for model training and is automatically deleted within 30 days. See <a href="https://www.anthropic.com/privacy" target="_blank">Anthropic's Privacy Policy</a> for details.</p>
       <p class="note" data-app="sidefeed">Sidefeed does not use Google account authentication. YouTube API calls are made server-side only and fetch public video metadata. Use of the YouTube API is subject to the <a href="https://www.youtube.com/t/terms" target="_blank">YouTube Terms of Service</a> and the <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a>.</p>
       <p class="note" data-app="catscute catspop">ADX Corporation operates multiple partner ad networks. Partner list: <a href="https://assets.adxcorp.kr/privacy/partners" target="_blank">assets.adxcorp.kr/privacy/partners</a></p>
     </div>
@@ -680,10 +691,21 @@
       <div class="app-block" data-app="runnote">
         <p class="sub-label">Anthropic, PBC (United States)</p>
         <ul>
-          <li>Data: running data (distance, duration, pace, heart rate, route)</li>
-          <li>Timing &amp; method: Claude API calls when using RunNote's AI coaching feature</li>
+          <li>Data: running data (distance, duration, pace, heart rate &amp; HR zones, cadence, elevation, splits), user-entered profile (age, weight, height, max/resting heart rate, fitness level, goals), health notes you enter (injuries, conditions, medication), pain records (area &amp; intensity), your running notes/memos, AI-accumulated coach notes, shoe info</li>
+          <li>Timing &amp; method: Claude API calls when using RunNote's AI coaching feature (after prior consent), over TLS</li>
           <li>Purpose: generating AI coaching responses</li>
-          <li>Retention: automatically deleted within 7 days after processing</li>
+          <li>Recipient contact: privacy@anthropic.com</li>
+          <li>Retention: per the <a href="https://www.anthropic.com/privacy" target="_blank" class="email">Anthropic Privacy Policy</a>, automatically deleted within 30 days after processing (not used for model training)</li>
+          <li>Opt-out: do not use the AI coaching feature (all other features such as records and notes remain available)</li>
+        </ul>
+      </div>
+      <div class="app-block" data-app="runnote">
+        <p class="sub-label">Cloudflare, Inc. (United States)</p>
+        <ul>
+          <li>Data: AI coaching request content (same items as the Anthropic entry above), your IP address (for network routing)</li>
+          <li>Timing &amp; method: relayed through our proxy server (Cloudflare Workers, US region) over TLS when using AI coaching</li>
+          <li>Purpose: API-key-protecting relay (proxy) — forwards requests to Anthropic without storing their content</li>
+          <li>Retention: the proxy does not store request content; network processing logs are governed by the <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="email">Cloudflare Privacy Policy</a></li>
           <li>Opt-out: do not use the AI coaching feature</li>
         </ul>
       </div>
@@ -734,7 +756,7 @@
       <p>By default, on-device data is deleted when you uninstall the app. iCloud-synced data and any server-based features or diagnostics described for a specific app follow the retention and deletion terms for that app.</p>
       <p data-app="pinclip">Pinclip Pro's iCloud-synced data is stored in your iCloud account and may remain in iCloud even after the app is deleted. You can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; "Pinclip".</p>
       <p data-app="pinclip">Folder share links are created only when you explicitly trigger "Share folder", and the resulting snapshot is retained on Cloudflare KV without an explicit expiry. Your nickname is stored on-device in UserDefaults and is removed when you uninstall the app. To remove a specific share link, contact us via the email at the bottom of this policy with the URL.</p>
-      <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted after 7 days.</p>
+      <p data-app="runnote">Data sent to Anthropic via RunNote's AI coaching feature is automatically deleted within 30 days.</p>
       <p data-app="sidefeed">Sidefeed does not store user account or authentication data. On-device data (interest categories, watch history, country preferences) is removed when the app is uninstalled. Our server cache contains no user-identifying information.</p>
       <p data-app="talkmemo">Talk Memo's recordings and text data are stored in App Group local storage; if iCloud sync is enabled, they are also stored in your iCloud account. iCloud data may persist after uninstall — you can delete it directly from iOS Settings &gt; Apple ID &gt; iCloud &gt; Manage Storage.</p>
       <p data-app="honestcamera">Honest Camera does not store user data on any external server. Captured photos are saved to the iOS Photos library and managed by Apple's Photos framework. When you uninstall the app, all in-app preferences (such as the onboarding-completion flag) are removed.</p>
@@ -770,7 +792,7 @@
         <tr><td>Right to restriction</td><td>Request that we stop processing certain data</td></tr>
         <tr><td>Right to object</td><td>Object to our processing of your data</td></tr>
       </table>
-      <p class="note" data-app="runnote">Data transmitted to Anthropic for RunNote's AI coaching is based on Legitimate Interest for service provision.</p>
+      <p class="note" data-app="runnote">Data transmitted to Anthropic for RunNote's AI coaching is based on your explicit consent (GDPR Art. 6(1)(a) and Art. 9(2)(a)), which you can withdraw at any time in the app's settings.</p>
       <p class="note" data-app="sidefeed">Sidefeed does not collect personal data, so there is no personal data processing that requires a legal basis under GDPR.</p>
       <p class="note">To exercise your rights, contact: <span class="email" id="email-en-gdpr"></span></p>
       <p class="note">EU/EEA residents also have the right to lodge a complaint with the supervisory authority in their country of residence.</p>
